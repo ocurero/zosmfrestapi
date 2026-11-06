@@ -7,7 +7,7 @@ packages:
 repositories: null
 secrets:
 - 60c74018-5d43-4a31-9bec-55c59e80f0b9 # github ssh key
-- c0e6f7da-5a15-4991-acad-5bcae9debca1 # pypi token
+- c0e6f7da-5a15-4991-acad-5bcae9debca1 # pypi zosmfrestapi token
 shell: null
 sources:
 - https://git.sr.ht/~ocurero/zosmfrestapi
@@ -23,7 +23,7 @@ tasks:
 - publish_pypi: |
     # Only in tags
     if [[ "$GIT_REF" =~ ^refs/tags/ ]]; then
-      poetry config pypi-token.pypi "$(cat ~/PYPI_TOKEN)"
+      poetry config pypi-token.pypi "$(cat ~/PYPI_TOKEN_ZOSMFRESTAPI)"
       cd zosmfrestapi
       poetry build --format sdist
       poetry publish 
