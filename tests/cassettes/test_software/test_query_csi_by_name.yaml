@@ -1,0 +1,124 @@
+interactions:
+- request:
+    body: '{"zones":["GLOBAL"],"entries":["SYSMOD"],"subentries":["*"],"filter":"ENAME=''HL00006''"}'
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '87'
+      content-type:
+      - application/json
+      user-agent:
+      - python-httpx2/2.16.0
+    method: POST
+    uri: https://zosmf.example/zosmf/swmgmt/swi/TSTA/HOOLIE/csiquery
+  response:
+    body:
+      string: '{"statusurl":"https:\/\/zosmf.example\/zosmf\/swmgmt\/statusmonitor\/csiquery\/1793101874908"}'
+    headers:
+      cache-control:
+      - no-cache="set-cookie, set-cookie2"
+      content-language:
+      - en-US
+      content-length:
+      - '104'
+      content-type:
+      - application/json; charset=ISO-8859-1
+      expires:
+      - Thu, 01 Dec 1994 16:00:00 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - Servlet/3.1
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 202
+      message: Accepted
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      user-agent:
+      - python-httpx2/2.16.0
+    method: GET
+    uri: https://zosmf.example/zosmf/swmgmt/statusmonitor/csiquery/1793101874908
+  response:
+    body:
+      string: '{"status":"running"}'
+    headers:
+      cache-control:
+      - no-store
+      content-language:
+      - en-US
+      content-length:
+      - '20'
+      content-type:
+      - application/json; charset=ISO-8859-1
+      pragma:
+      - no-cache
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - Servlet/3.1
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      user-agent:
+      - python-httpx2/2.16.0
+    method: GET
+    uri: https://zosmf.example/zosmf/swmgmt/statusmonitor/csiquery/1793101874908
+  response:
+    body:
+      string: '{"status":"complete","entries":[{"entryname":"HL00006","entrytype":"SYSMOD","zonename":"GLOBAL","subentries":[{"BYPASS":["NO"],"VER":null},
+              {"DELLMOD":["NO"],"VER":null},{"ELEMMOV":["NO"],"VER":null},{"ERROR":["NO"],"VER":null},{"FMID":["HOOMOC3"],"VER":"1"},{"SREL":["Z038"],"VER":"1"},
+              {"SUPING":["HL00001","HL00002","HL00003","HL00004","HL00005"],"VER":"1"},{"HFS":["HOOLMOC"],"VER":null},{"HOLDDATA":["SYSTEM(INT),DOC,HL00006"],"VER":null},
+              {"JCLIN":["NO"],"VER":null},{"PROGRAM":["HOOLMOC"],"VER":null},{"RECDATE":["20304"],"VER":null},{"RECTIME":["13:44:10"],"VER":null},
+              {"REGEN":["NO"],"VER":null},{"RENLMOD":["NO"],"VER":null},{"RESTORE":["NO"],"VER":null},{"SMODTYPE":["PTF"],"VER":null}]}]}'
+    headers:
+      cache-control:
+      - no-store
+      content-language:
+      - en-US
+      content-length:
+      - '697'
+      content-type:
+      - application/json; charset=ISO-8859-1
+      pragma:
+      - no-cache
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - Servlet/3.1
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

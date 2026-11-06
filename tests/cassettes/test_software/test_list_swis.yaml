@@ -1,0 +1,49 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      user-agent:
+      - python-httpx2/2.16.0
+    method: GET
+    uri: https://zosmf.example/zosmf/swmgmt/swi
+  response:
+    body:
+      string: '{"swilist":[{"name":"HOOLIE","system":"TSTA","description":"Product A","globalzone":"OSHOOLI.GLOBAL.CSI","targetzones":["TGT"],
+               "categories":["FOO"],"productinforetrieved":"2026-10-22T16:13:00Z","lastmodified":"2026-10-02T10:35:38Z","modifiedby":"FOOBAR",
+               "created":"2026-10-02T10:35:38Z","createdby":"FOOO","locked":null,"lockedby":null,
+               "swiurl":"https:\/\/zosmf.example\/zosmf\/swmgmt\/swi\/c66bb092-cf92-4db9-96fd-2073e3b826ae","swiuuid":"c66bb092-cf92-4db9-96fd-2073e3b826ae"},
+               {"name":"HOOLIE","system":"TSTB","description":"Product A","globalzone":"OSHOOLI.GLOBAL.CSI","targetzones":["TGT"],
+               "categories":["FOO"],"productinforetrieved":"2026-10-22T16:13:00Z","lastmodified":"2026-10-02T10:35:38Z","modifiedby":"FOOBAR",
+               "created":"2026-10-02T10:35:38Z","createdby":"FOOO","locked":null,"lockedby":null,
+               "swiurl":"https:\/\/zosmf.example\/zosmf\/swmgmt\/swi\/dabf0e67-cb96-43a5-abba-b47caa91a61d","swiuuid":"dabf0e67-cb96-43a5-abba-b47caa91a61d"}]}'
+    headers:
+      cache-control:
+      - no-store, no-cache=set-cookie
+      content-language:
+      - en-US
+      content-length:
+      - '1492'
+      content-type:
+      - application/json; charset=ISO-8859-1
+      expires:
+      - Thu, 01 Dec 1994 16:00:00 GMT
+      pragma:
+      - no-cache
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - Servlet/3.1
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

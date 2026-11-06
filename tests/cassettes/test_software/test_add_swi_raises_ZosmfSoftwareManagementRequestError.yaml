@@ -1,0 +1,48 @@
+interactions:
+- request:
+    body: '{"name":"HOOLIE","system":"TSTB","description":"","globalzone":"OSHOOLI.GLOBAL.CSI","targetzones":["TGT"],"categories":[],"datasets":[],"products":[],"workflows":[],"datasetproperties":[],"datasetpropertylabels":[],"productproperties":[]}'
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '238'
+      content-type:
+      - application/json
+      user-agent:
+      - python-httpx2/2.16.0
+    method: POST
+    uri: https://zosmf.example/zosmf/swmgmt/swi
+  response:
+    body:
+      string: '{"reason":"19","messages":["System entry \"TSTB\" is not defined to
+        z\/OSMF. Specify the name for an existing z\/OSMF system entry and retry the
+        request."]}'
+    headers:
+      cache-control:
+      - no-cache="set-cookie, set-cookie2"
+      connection:
+      - Close
+      content-language:
+      - en-US
+      content-length:
+      - '156'
+      content-type:
+      - application/json; charset=ISO-8859-1
+      expires:
+      - Thu, 01 Dec 1994 16:00:00 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - Servlet/3.1
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 404
+      message: Not Found
+version: 1

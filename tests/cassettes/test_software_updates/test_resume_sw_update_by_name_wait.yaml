@@ -1,0 +1,126 @@
+interactions:
+- request:
+    body: '{"suspend-steps":["PRE_INSTALLATION_SUMMARY"],"resolve-holds":[],"exclude-updates":[],"notes":""}'
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '97'
+      content-type:
+      - application/json
+      user-agent:
+      - python-httpx2/2.16.0
+    method: POST
+    uri: https://zosmf.example/zosmf/swmgmt/swi/TSTA/HOOLIE/swupdate/resume
+  response:
+    body:
+      string: '{"processid":"58"}'
+    headers:
+      cache-control:
+      - no-cache="set-cookie, set-cookie2"
+      content-language:
+      - en-US
+      content-length:
+      - '18'
+      content-type:
+      - application/json; charset=ISO-8859-1
+      expires:
+      - Thu, 01 Dec 1994 16:00:00 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - Servlet/3.1
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 202
+      message: Accepted
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      user-agent:
+      - python-httpx2/2.16.0
+    method: GET
+    uri: https://zosmf.example/zosmf/swmgmt/swupdate/58
+  response:
+    body:
+      string: '{"name":"HOOLIE","system":"TSTA","uuid":"c66bb092-cf92-4db9-96fd-2073e3b826ae","update-processes":[{"targetzone":"TGT",
+              "selection":{"updates":["HL00002"]},"exclude-updates":[],"resolve-holds":[],"suspend-steps":["PRE_INSTALLATION_SUMMARY"],
+              "notes":"","processid":58,"started":"2026-10-29T13:45:49Z","lastmodified":"2026-10-29T13:46:04Z","status":"RUNNING",
+              "step":"VERIFYING_UPDATES","holds":[]}]}'
+    headers:
+      cache-control:
+      - no-store
+      content-language:
+      - en-US
+      content-length:
+      - '396'
+      content-type:
+      - application/json; charset=ISO-8859-1
+      pragma:
+      - no-cache
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - Servlet/3.1
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      user-agent:
+      - python-httpx2/2.16.0
+    method: GET
+    uri: https://zosmf.example/zosmf/swmgmt/swupdate/58
+  response:
+    body:
+      string: '{"name":"HOOLIE","system":"TSTA","uuid":"c66bb092-cf92-4db9-96fd-2073e3b826ae","update-processes":[{"targetzone":"TGT",
+              "selection":{"updates":["HL00002"]},"exclude-updates":[],"resolve-holds":[],"suspend-steps":["PRE_INSTALLATION_SUMMARY"],
+              "notes":"","processid":58,"started":"2026-10-29T13:45:49Z","lastmodified":"2026-10-29T13:46:24Z","status":"SUSPENDED",
+              "step":"PRE_INSTALLATION_SUMMARY","holds":[],"updates":[{"fmid":"","selectStatus":"SELECTED","name":"HL00002"}]}]}'
+    headers:
+      cache-control:
+      - no-store
+      content-language:
+      - en-US
+      content-length:
+      - '472'
+      content-type:
+      - application/json; charset=ISO-8859-1
+      pragma:
+      - no-cache
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - Servlet/3.1
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -1,0 +1,122 @@
+interactions:
+- request:
+    body: '{"updates":["UO07777"]}'
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '23'
+      content-type:
+      - application/json
+      user-agent:
+      - python-httpx2/2.16.0
+    method: POST
+    uri: https://zosmf.example/zosmf/swmgmt/swi/TSTA/HOOLIE/softwareupdatesearch
+  response:
+    body:
+      string: '{"statusurl":"https:\/\/zosmf.example\/zosmf\/swmgmt\/statusmonitor\/softwareupdatesearch\/1793141287379"}'
+    headers:
+      cache-control:
+      - no-cache="set-cookie, set-cookie2"
+      content-language:
+      - en-US
+      content-length:
+      - '116'
+      content-type:
+      - application/json; charset=ISO-8859-1
+      expires:
+      - Thu, 01 Dec 1994 16:00:00 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - Servlet/3.1
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 202
+      message: Accepted
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      user-agent:
+      - python-httpx2/2.16.0
+    method: GET
+    uri: https://zosmf.example/zosmf/swmgmt/statusmonitor/softwareupdatesearch/1793141287379
+  response:
+    body:
+      string: '{"status":"running"}'
+    headers:
+      cache-control:
+      - no-store
+      content-language:
+      - en-US
+      content-length:
+      - '20'
+      content-type:
+      - application/json; charset=ISO-8859-1
+      pragma:
+      - no-cache
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - Servlet/3.1
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      user-agent:
+      - python-httpx2/2.16.0
+    method: GET
+    uri: https://zosmf.example/zosmf/swmgmt/statusmonitor/softwareupdatesearch/1793141287379
+  response:
+    body:
+      string: '{"status":"complete","updates":[{"name":"UO07777","type":"PTF","fmid":"HOOMOC3","zones":[{"zone":"DLI","status":"Not
+        Found","installed":null},{"zone":"GLOBAL","status":"Received","installed":"2026-05-15T09:55:08Z"},{"zone":"TGT","status":"Applied",
+        "installed":"2026-10-27T17:52:42Z"}]}]}'
+    headers:
+      cache-control:
+      - no-store
+      content-language:
+      - en-US
+      content-length:
+      - '295'
+      content-type:
+      - application/json; charset=ISO-8859-1
+      pragma:
+      - no-cache
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - Servlet/3.1
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

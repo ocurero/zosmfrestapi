@@ -1,0 +1,45 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      user-agent:
+      - python-httpx2/2.16.0
+    method: GET
+    uri: https://zosmf.example/zosmf/resttopology/systems
+  response:
+    body:
+      string: '{"numRows":2,"items":[{"systemNickName":"TESTA","groupNames":"GROUP0,IYUCLOUD","cpcSerial":"","zosVR":"","systemName":"TSTA","jesType":"JES2",
+              "sysplexName":"TST01","jesMemberName":"TSTA","httpProxyName":"","ftpDestinationName":"","url":"https://zosmf.example/zosmf/","cpcName":""},
+              {"systemNickName":"TESTB","groupNames":"IYUCLOUD","cpcSerial":"","zosVR":"","systemName":"TSTB","jesType":"JES2","sysplexName":"TST01",
+              "jesMemberName":"TSTB","httpProxyName":"","ftpDestinationName":"","url":"","cpcName":""}]}'
+    headers:
+      cache-control:
+      - no-store, no-cache=set-cookie
+      content-language:
+      - en
+      content-length:
+      - '1872'
+      content-type:
+      - application/json
+      expires:
+      - Thu, 01 Dec 1994 16:00:00 GMT
+      pragma:
+      - no-cache
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - Servlet/3.1
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

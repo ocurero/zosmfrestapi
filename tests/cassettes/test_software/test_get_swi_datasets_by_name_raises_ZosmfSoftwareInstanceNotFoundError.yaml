@@ -1,0 +1,46 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '0'
+      user-agent:
+      - python-httpx2/2.16.0
+    method: POST
+    uri: https://zosmf.example/zosmf/swmgmt/swi/TSTC/HOOLIE/datasets
+  response:
+    body:
+      string: '{"reason":"21","messages":["A software instance with the name \"HOOLIE\"
+        on system \"TSTC\" does not exist.  Specify an existing software instance
+        and retry the request."]}'
+    headers:
+      cache-control:
+      - no-cache="set-cookie, set-cookie2"
+      connection:
+      - Close
+      content-language:
+      - en-US
+      content-length:
+      - '172'
+      content-type:
+      - application/json; charset=ISO-8859-1
+      expires:
+      - Thu, 01 Dec 1994 16:00:00 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - Servlet/3.1
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 404
+      message: Not Found
+version: 1

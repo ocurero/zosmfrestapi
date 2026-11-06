@@ -1,0 +1,47 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      user-agent:
+      - python-httpx2/2.16.0
+    method: GET
+    uri: https://zosmf.example/zosmf/workflow/rest/1.0/workflows/fc4fc0fa-1fa3-4247-bb2d-7f5203e0c3c7?returnData=
+  response:
+    body:
+      string: '{"access":"Public","jobStatement":null,"workflowArchiveSAFID":"FOOBAR","deleteCompletedJobs":false,"globalVariableGroup":null,
+              "jobsOutputDirectory":"\/foo\/bar\/log","vendor":"Hooli Software","scope":"sysplex","statusName":"in-progress","workflowID":"myworkflow",
+              "owner":"FOOBAR","accountInfo":null,"isInstanceVariableWithoutPrefix":false,"workflowName":"HOOLIE","automationStatus":null,"percentComplete":0,
+              "workflowDescription":"The Box III, Gavin Belson Signature Edition","containsParallelSteps":false,
+              "workflowDefinitionFileMD5Value":"c87342978ad879837a9872899cse2001","isCallable":null,"system":"TST01.TSTA","autoDeleteOnCompletion":false,
+              "workflowKey":"fc4fc0fa-1fa3-4247-bb2d-7f5203e0c3c7","workflowVersion":"1.0","category":"general"}'
+    headers:
+      cache-control:
+      - no-store, no-cache=set-cookie
+      content-language:
+      - en
+      content-length:
+      - '765'
+      content-type:
+      - application/json; charset=UTF-8
+      expires:
+      - Thu, 01 Dec 1994 16:00:00 GMT
+      pragma:
+      - no-cache
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - Servlet/3.1
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

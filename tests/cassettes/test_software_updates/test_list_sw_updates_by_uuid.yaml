@@ -1,0 +1,53 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      user-agent:
+      - python-httpx2/2.16.0
+    method: GET
+    uri: https://zosmf.example/zosmf/swmgmt/swi/ab7a70d9-02bf-4a70-9623-961d014bdec1/swupdate/all
+  response:
+    body:
+      string: '{"name":"HOOLIE","system":"TSTA","uuid":"ab7a70d9-02bf-4a70-9623-961d014bdec1","update-processes":[
+        {"targetzone":"TGT","selection":{"updates":["UO07777","UO08888"]},"notes":"","processid":36,"started":"2026-09-25T15:47:03Z",
+        "completed":"2026-09-25T15:48:03Z","status":"COMPLETED","step":"COMPLETE","holds":[],"updates":[{"fmid":"HOOMOC3","selectStatus":"APPLIED",
+        "name":"UO06666"},{"fmid":"HOOMOC3","selectStatus":"APPLIED","name":"UO07777"},{"fmid":"HOOMOC3","selectStatus":"APPLIED","name":"UO08888"},
+        {"fmid":"HOOMOC3","selectStatus":"APPLIED","name":"UO09999"}]},{"targetzone":"TGT","selection":{"updates":["UO07777","UO08888"]},"notes":"",
+        "processid":34,"started":"2026-09-25T15:44:39Z","completed":"2026-09-25T15:44:49Z","status":"CANCELED","step":"PREPARING_UPDATES",
+        "error-results":{"smpe-rc":12,"message":"SMP\/E
+        detected missing required SYSMODs. Check the Error report for the list of
+        missing SYSMODs.<br><br>RECEIVE the missing SYSMODs into the global zone and
+        retry the step.","detailedMessage":"Missing SYSMODs: \n\n"}}]}'
+    headers:
+      cache-control:
+      - no-store, no-cache=set-cookie
+      connection:
+      - Close
+      content-language:
+      - en-US
+      content-length:
+      - '189'
+      content-type:
+      - application/json; charset=ISO-8859-1
+      expires:
+      - Thu, 01 Dec 1994 16:00:00 GMT
+      pragma:
+      - no-cache
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - Servlet/3.1
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

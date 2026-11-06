@@ -1,0 +1,30 @@
+arch: null
+artifacts: null
+environment: null
+image: alpine/old
+packages:
+- poetry
+repositories: null
+secrets:
+- 60c74018-5d43-4a31-9bec-55c59e80f0b9 # github ssh key
+- 4e501fae-54d9-46ab-aaea-abad07526be1 # pypi token
+shell: null
+sources:
+- git@git.sr.ht:~ocurero/zosmfrestapi
+tasks:
+- run_tests: |
+    cd zosmfrestapi
+    poetry run pytest
+- sync_to_github: |
+    ssh-keyscan github.com >> ~/.ssh/known_hosts
+    cd zosmfrestapi
+    git push --mirror git+ssh://git@github.com/ocurero/zosmfrestapi.git
+- publish_pypi: |
+    # Only in tags
+    if [[ "$GIT_REF" =~ ^refs/tags/ ]]; then
+      poetry config pypi-token.pypi "$(cat ~/PYPI_TOKEN)"
+      cd zosmfrestapi
+      poetry build --format sdist
+      poetry publish 
+    fi
+triggers: null

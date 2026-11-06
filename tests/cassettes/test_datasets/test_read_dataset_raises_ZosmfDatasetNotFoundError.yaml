@@ -1,0 +1,47 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      user-agent:
+      - python-httpx2/2.16.0
+    method: GET
+    uri: https://zosmf.example/zosmf/restfiles/ds/USER.PDS2(MEMBER)
+  response:
+    body:
+      string: '{"category":6,"rc":8,"reason":386400778,"message":"Data set not found.","details":["IKJ56228I
+        DATA SET USER.PDS2 NOT IN CATALOG OR CATALOG CAN NOT BE ACCESSED    "]}'
+    headers:
+      cache-control:
+      - no-store, no-cache=set-cookie
+      connection:
+      - Close
+      content-language:
+      - en
+      content-length:
+      - '164'
+      content-type:
+      - application/json; charset=UTF-8
+      expires:
+      - Thu, 01 Dec 1994 16:00:00 GMT
+      pragma:
+      - no-cache
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-ibm-txid:
+      - tx0000000000009A7A
+      x-powered-by:
+      - Servlet/3.1
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 404
+      message: Not Found
+version: 1

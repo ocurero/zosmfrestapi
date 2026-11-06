@@ -1,0 +1,32 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      user-agent:
+      - python-httpx2/2.16.0
+    method: GET
+    uri: https://zosmf.example/zosmf/restfiles/ds/MY.DATASET
+  response:
+    body:
+      string: ''
+    headers:
+      content-language:
+      - en
+      content-length:
+      - '0'
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      www-authenticate:
+      - Basic realm="defaultRealm"
+      x-powered-by:
+      - Servlet/3.1
+    status:
+      code: 401
+      message: Unauthorized
+version: 1

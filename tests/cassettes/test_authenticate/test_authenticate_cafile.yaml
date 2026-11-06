@@ -1,0 +1,50 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '0'
+      user-agent:
+      - python-httpx2/2.16.0
+    method: POST
+    uri: https://zosmf.example/zosmf/services/authenticate
+  response:
+    body:
+      string: '{"returnCode":0,"reasonCode":0,"message":"Success."}'
+    headers:
+      cache-control:
+      - no-cache="set-cookie, set-cookie2"
+      content-language:
+      - en
+      content-type:
+      - application/json;charset=ISO-8859-1
+      date:
+      - Wed, 04 Nov 2026 18:32:36 GMT
+      expires:
+      - Thu, 01 Dec 1994 16:00:00 GMT
+      set-cookie:
+      - LtpaToken2=""; Expires=Thu, 01 Dec 1994 16:00:00 GMT; Path=/; Secure; HttpOnly
+      - jwtToken=eyJraWQiOiJBTk9OWU1JWkVEX0tJRCIsInR5cCI6IkpXVCIsImFsZyI6IlJTMjU2In0.eyJ0b2tlbl90eXBlIjoiQmVhcmVyIiwic3ViIjoiPFVTRVI+IiwidXBuIjoiPFVTRVI+IiwiZ3JvdXBzIjpbIkdST1VQX0EiLCJHUk9VUF9CIiwiR1JPVVBfQyJdLCJyZWFsbSI6IjxSRUFMTT4iLCJpc3MiOiI8SVNTVUVSPiIsImV4cCI6MTIzNDU2Nzg5MCwiaWF0IjoxMjM0NTYwMDAwfQ.<SIGNATURE_REDACTED>;
+        Path=/; Secure; HttpOnly
+      - LtpaToken2=x2q29998U26AwfYy4vc0GlK5zItaZkkXEbGQ/qZ9DWdahFzjRf3OQWavfyVZsLmlqrus47JFqFTYTlw41WAA5lMANL31gQihu83RPJk9pmgY4NY1TCi2+0MTVd8CCMp6zEfvwIWuWjmAtTT96LreC+B3+6rBhhH4AA82XY0B36FRvzH0/OWomawz3nLRP7Lv1Te1iCIVVlrdwMklJjl8juVgbTIUXnXUls5TmLTrEEqd+mljc7GPzWyQpegrPIohfeEQ89s2zmDjCW1sN+tstmvA5zWl1hzmSwvEgDl8Q548NiM1t3FQpvWRbzTsmyr2;
+        Path=/; Secure; HttpOnly
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      transfer-encoding:
+      - chunked
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - Servlet/3.1
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

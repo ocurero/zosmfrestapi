@@ -1,0 +1,42 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '0'
+      cookie:
+      - jwtToken=eyJraWQiOiJBTk9OWU1JWkVEX0tJRCIsInR5cCI6IkpXVCIsImFsZyI6IlJTMjU2In0.eyJ0b2tlbl90eXBlIjoiQmVhcmVyIiwic3ViIjoiPFVTRVI+IiwidXBuIjoiPFVTRVI+IiwiZ3JvdXBzIjpbIkdST1VQX0EiLCJHUk9VUF9CIiwiR1JPVVBfQyJdLCJyZWFsbSI6IjxSRUFMTT4iLCJpc3MiOiI8SVNTVUVSPiIsImV4cCI6MTIzNDU2Nzg5MCwiaWF0IjoxMjM0NTYwMDAwfQ.<SIGNATURE_REDACTED>
+      user-agent:
+      - python-httpx2/2.16.0
+    method: POST
+    uri: https://zosmf.example/zosmf/services/authenticate
+  response:
+    body:
+      string: '{"returnCode":0,"reasonCode":0,"message":"Success."}'
+    headers:
+      content-language:
+      - en
+      content-type:
+      - application/json;charset=ISO-8859-1
+      date:
+      - Tue, 03 Nov 2026 20:00:52 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      transfer-encoding:
+      - chunked
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - Servlet/3.1
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

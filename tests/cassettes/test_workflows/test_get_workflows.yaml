@@ -1,0 +1,45 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      user-agent:
+      - python-httpx2/2.16.0
+    method: GET
+    uri: https://zosmf.example/zosmf/workflow/rest/1.0/workflows?workflowName=&category=&system=&statusName=&owner=&vendor=
+  response:
+    body:
+      string: '{"workflows":[{"owner":"FOOBAR","workflowDefinitionFileMD5Value":"c87342978ad879837a9872899cse2001",
+              "instanceURI":"\/zosmf\/workflow\/rest\/1.0\/workflows\/8ed3a85e-6472-47eb-ba44-19e9511df450","access":"Public","vendor":"Hooli Software",
+              "workflowKey":"8ed3a85e-6472-47eb-ba44-19e9511df450","workflowName":"HOOLIE","workflowVersion":"1.0",
+              "workflowDescription":"The Box III, Gavin Belson Signature Edition","workflowID":"HOOLMC"}]}'
+    headers:
+      cache-control:
+      - no-store, no-cache=set-cookie
+      content-language:
+      - en
+      content-length:
+      - '420'
+      content-type:
+      - application/json; charset=UTF-8
+      expires:
+      - Thu, 01 Dec 1994 16:00:00 GMT
+      pragma:
+      - no-cache
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - Servlet/3.1
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

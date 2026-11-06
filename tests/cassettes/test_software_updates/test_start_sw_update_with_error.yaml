@@ -1,0 +1,170 @@
+interactions:
+- request:
+    body: '{"targetzone":"IPI25T","updates":["UO07777"],"sourceids":null,"fixcats":null,"suspend-steps":[],"resolve-holds":[],"exclude-updates":[],"notes":""}'
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '147'
+      content-type:
+      - application/json
+      user-agent:
+      - python-httpx2/2.16.0
+    method: POST
+    uri: https://zosmf.example/zosmf/swmgmt/swi/ab7a70d9-02bf-4a70-9623-961d014bdec1/swupdate
+  response:
+    body:
+      string: '{"processid":"58"}'
+    headers:
+      cache-control:
+      - no-cache="set-cookie, set-cookie2"
+      content-language:
+      - en-US
+      content-length:
+      - '18'
+      content-type:
+      - application/json; charset=ISO-8859-1
+      expires:
+      - Thu, 01 Dec 1994 16:00:00 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - Servlet/3.1
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 202
+      message: Accepted
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      user-agent:
+      - python-httpx2/2.16.0
+    method: GET
+    uri: https://zosmf.example/zosmf/swmgmt/swupdate/58
+  response:
+    body:
+      string: '{"name":"HOOLIE","system":"TSTA","uuid":"ab7a70d9-02bf-4a70-9623-961d014bdec1","update-processes":[
+              {"targetzone":"IPI25T","selection":{"updates":["UO07777"]},"exclude-updates":[],"resolve-holds":[],
+              "suspend-steps":[],"notes":"","processid":58,"started":"2026-10-28T10:08:57Z","lastmodified":"2026-10-28T10:08:57Z",
+              "status":"RUNNING","step":"PREPARING_UPDATES","holds":[]}]}'
+    headers:
+      cache-control:
+      - no-store
+      content-language:
+      - en-US
+      content-length:
+      - '373'
+      content-type:
+      - application/json; charset=ISO-8859-1
+      pragma:
+      - no-cache
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - Servlet/3.1
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      user-agent:
+      - python-httpx2/2.16.0
+    method: GET
+    uri: https://zosmf.example/zosmf/swmgmt/swupdate/58
+  response:
+    body:
+      string: '{"name":"HOOLIE","system":"TSTA","uuid":"ab7a70d9-02bf-4a70-9623-961d014bdec1","update-processes":[
+              {"targetzone":"TGT","selection":{"updates":["UO08888"]},"exclude-updates":[],"resolve-holds":[],
+              "suspend-steps":[],"notes":"","processid":58,"started":"2026-10-28T10:08:57Z","lastmodified":"2026-10-28T10:08:57Z",
+              "status":"RUNNING","step":"PREPARING_UPDATES","holds":[]}]}'
+    headers:
+      cache-control:
+      - no-store
+      content-language:
+      - en-US
+      content-length:
+      - '373'
+      content-type:
+      - application/json; charset=ISO-8859-1
+      pragma:
+      - no-cache
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - Servlet/3.1
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      user-agent:
+      - python-httpx2/2.16.0
+    method: GET
+    uri: https://zosmf.example/zosmf/swmgmt/swupdate/58
+  response:
+    body:
+      string: '{"name":"HOOLIE","system":"TSTA","uuid":"ab7a70d9-02bf-4a70-9623-961d014bdec1","update-processes":[{"targetzone":"TGT",
+        "selection":{"updates":["UO07777", "UO08888"]},"exclude-updates":[],"resolve-holds":[],"suspend-steps":[],"notes":"","processid":58,
+        "started":"2026-10-28T10:08:57Z","lastmodified":"2026-10-28T10:08:57Z","status":"ERROR","step":"PREPARING_UPDATES","error-results":{"smpe-rc":12,"message":"No
+        updates to install.","detailedMessage":"\nPAGE 0001  - NOW SET TO TARGET ZONE
+        IPI25T   DATE 10\/28\/26  TIME 11:08:58  SMP\/E 37.41   SMPOUT   OUTPUT\n\n
+        GIM42401I    THE FOLLOWING PARAMETERS WERE SPECIFIED ON THE EXEC STATEMENT
+        FOR GIMSMP: ''PROCESS=END''."},"holds":[]}]}'
+    headers:
+      cache-control:
+      - no-store
+      content-language:
+      - en-US
+      content-length:
+      - '1305'
+      content-type:
+      - application/json; charset=ISO-8859-1
+      pragma:
+      - no-cache
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - Servlet/3.1
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -1,0 +1,48 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      user-agent:
+      - python-httpx2/2.16.0
+    method: GET
+    uri: https://zosmf.example/zosmf/swmgmt/swi/000000-0000000-000000-0000-00000
+  response:
+    body:
+      string: 'Error 404: SRVE0295E: Error reported: 404
+
+        '
+    headers:
+      $wsep:
+      - ''
+      cache-control:
+      - no-store, no-cache=set-cookie
+      connection:
+      - Close
+      content-language:
+      - en
+      content-type:
+      - text/html;charset=UTF-8
+      expires:
+      - Thu, 01 Dec 1994 16:00:00 GMT
+      pragma:
+      - no-cache
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      transfer-encoding:
+      - chunked
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - Servlet/3.1
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 404
+      message: Not Found
+version: 1

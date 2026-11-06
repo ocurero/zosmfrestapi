@@ -1,0 +1,131 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '0'
+      user-agent:
+      - python-httpx2/2.16.0
+    method: PUT
+    uri: https://zosmf.example/zosmf/workflow/rest/1.0/workflows/f0541261-573d-48ed-8f3e-75884db326ec/operations/start
+  response:
+    body:
+      string: ''
+    headers:
+      cache-control:
+      - no-cache="set-cookie, set-cookie2"
+      content-language:
+      - en
+      content-length:
+      - '0'
+      content-type:
+      - application/json; charset=UTF-8
+      expires:
+      - Thu, 01 Dec 1994 16:00:00 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - Servlet/3.1
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 202
+      message: Accepted
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      user-agent:
+      - python-httpx2/2.16.0
+    method: GET
+    uri: https://zosmf.example/zosmf/workflow/rest/1.0/workflows/f0541261-573d-48ed-8f3e-75884db326ec?returnData=
+  response:
+    body:
+      string: '{"access":"Public","jobStatement":null,"workflowArchiveSAFID":"demouser","deleteCompletedJobs":false,"globalVariableGroup":null,"jobsOutputDirectory":null,"vendor":"Hoolie
+        Software","scope":"sysplex","statusName":"automation-in-progress","workflowID":"Hoolie","owner":"demouser",
+        "accountInfo":null,"isInstanceVariableWithoutPrefix":false,"workflowName":"myworkflow1","automationStatus":{"messageText":null,
+        "startedTime":1793372229956,"currentStepNumber":"1","currentStepName":"step1","stoppedTime":0,"messageID":null,"startUser":"demouser",
+        "currentStepTitle":"Infinite Scale"},"percentComplete":0,"workflowDescription":"The Box III, Gavin Belson
+        Signature Edition","containsParallelSteps":false,"workflowDefinitionFileMD5Value":"aca0b684798fb2dfd49261ca4d211d93","isCallable":null,
+        "system":"TST01.TSTA (TSTA)","autoDeleteOnCompletion":false,"workflowKey":"f0541261-573d-48ed-8f3e-75884db326ec",
+        "workflowVersion":"1.0","category":"general"}'
+    headers:
+      cache-control:
+      - no-store
+      content-language:
+      - en
+      content-length:
+      - '936'
+      content-type:
+      - application/json; charset=UTF-8
+      pragma:
+      - no-cache
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - Servlet/3.1
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      user-agent:
+      - python-httpx2/2.16.0
+    method: GET
+    uri: https://zosmf.example/zosmf/workflow/rest/1.0/workflows/f0541261-573d-48ed-8f3e-75884db326ec?returnData=
+  response:
+    body:
+      string: '{"access":"Public","jobStatement":null,"workflowArchiveSAFID":"demouser","deleteCompletedJobs":false,"globalVariableGroup":null,"jobsOutputDirectory":null,"vendor":"Hoolie
+        Software","scope":"sysplex","statusName":"complete","workflowID":"Hoolie","owner":"demouser","accountInfo":null,"isInstanceVariableWithoutPrefix":false,"workflowName":"myworkflow1","automationStatus":{"messageText":"IZUWF0162I:
+        Automation processing for workflow \"myworkflow1\" is complete.","startedTime":1793372229956,"currentStepNumber":null,
+        "currentStepName":null,"stoppedTime":1793372240695,"messageID":"IZUWF0162I","startUser":"demouser","currentStepTitle":null},
+        "percentComplete":100,"workflowDescription":"The Box III, Gavin Belson Signature Edition","containsParallelSteps":false,
+        "workflowDefinitionFileMD5Value":"aca0b684798fb2dfd49261ca4d211d93","isCallable":null,"system":"TST01.TSTA (TSTA)",
+        "autoDeleteOnCompletion":false,"workflowKey":"f0541261-573d-48ed-8f3e-75884db326ec","workflowVersion":"1.0","category":"general"}'
+    headers:
+      cache-control:
+      - no-store
+      content-language:
+      - en
+      content-length:
+      - '1003'
+      content-type:
+      - application/json; charset=UTF-8
+      pragma:
+      - no-cache
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - Servlet/3.1
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

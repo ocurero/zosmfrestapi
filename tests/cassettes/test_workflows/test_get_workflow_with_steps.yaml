@@ -1,0 +1,89 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      user-agent:
+      - python-httpx2/2.16.0
+    method: GET
+    uri: https://zosmf.example/zosmf/workflow/rest/1.0/workflows/ef73bcd5-e904-4fcf-8d88-836dbffc0f62?returnData=steps
+  response:
+    body:
+      string: '{"access":"Public","jobStatement":null,"workflowArchiveSAFID":"FOOBAR","deleteCompletedJobs":false,"globalVariableGroup":null,
+              "jobsOutputDirectory":"\/foo\/bar\/log","vendor":"Hooli Software","scope":"sysplex","statusName":"in-progress","workflowID":"myworkflow",
+              "owner":"FOOBAR","accountInfo":null,"isInstanceVariableWithoutPrefix":false,"workflowName":"myworkflow","automationStatus":null,
+              "percentComplete":0,"workflowDescription":"The Box III, Gavin Belson Signature Edition",
+              "steps":[{"template":"\/\/*********************************************************************\n\/\/*              STEP
+        - Create temporary directory using BPXBATCH     *\n\/\/*********************************************************************\n\/\/*\n\/\/CREATE   EXEC
+        PGM=BPXBATCH\n\/\/*\n\/\/STDOUT   DD SYSOUT=*\n\/\/*\n\/\/STDERR   DD SYSOUT=*\n\/\/*\n\/\/STDPARM  DD
+        *\nSH mkdir -m 700 \/tmp\/IZUWORKFLOW-17932912593740.328682\n\/*\n\/\/*\n\/\/*********************************************************************\n\/\/*              STEP
+        - Create script in temp directory using BPXCOPY *\n\/\/*********************************************************************\n\/\/*\n\/\/UXCOPY   EXEC
+        PGM=BPXCOPY,\n\/\/             PARM=''ELEMENT(MYSCRIPT) TYPE(TEXT) PATHMODE(0,7,0,0)''\n\/\/*\n\/\/SYSTSPRT
+        DD SYSOUT=*\n\/\/*\n\/\/SYSIN    DD DUMMY\n\/\/*\n\/\/SYSUT2   DD PATH=''\/tmp\/IZUWORKFLOW-17932912593740.328682''\n\/\/*\n\/\/SYSUT1   DD
+        *,DLM=$$\n\/bin\/echo ''HELLO WORLD 1''\n$$\n\/\/*\n\/\/*********************************************************************\n\/\/*              STEP
+        - Execute script using BPXBATCH                 *\n\/\/*********************************************************************\n\/\/*\n\/\/XBATCH   EXEC
+        PGM=BPXBATCH\n\/\/*\n\/\/STDOUT   DD SYSOUT=*\n\/\/*\n\/\/STDERR   DD SYSOUT=*\n\/\/*\n\/\/STDPARM  DD
+        *\nSH \/tmp\/IZUWORKFLOW-17932912593740.328682\/MYSCRIPT\n\/*\n\/\/*\n\/\/*********************************************************************\n\/\/*              STEP
+        - Delete temporary directory using BPXBATCH     *\n\/\/*********************************************************************\n\/\/*\n\/\/REMOVE   EXEC
+        PGM=BPXBATCH\n\/\/*\n\/\/STDOUT   DD SYSOUT=*\n\/\/*\n\/\/STDERR   DD SYSOUT=*\n\/\/*\n\/\/STDPARM  DD
+        *\nSH rm -r \/tmp\/IZUWORKFLOW-17932912593740.328682\n\/*\n\/\/*\n\/\/*********************************************************************",
+        "instructions":"","maxLrecl":1024,"failedPattern":[],"description":"The
+        Box III, Gavin Belson Signature Edition: because ordinary excellence was never
+         enough","outputVariablesPrefix":null,"variable-references":null,"saveAsUnixFileSub":false,"procName":"IZUFPROC","title":"Infinite
+        Scale","jobInfo":null,"timeout":0,"regionSize":0,"skills":null,"isRestStep":false,"output":null,"outputSub":false,"returnCode":null,"outputSysoutDD":false,
+        "successPattern":null,"state":"Unassigned","templateSub":false,"owner":null,"autoEnable":true,"submitAs":"shell-JCL","userDefined":false,"weight":"1",
+        "optional":false,"steps":null,"scriptParameters":null,"saveAsUnixFile":null,"instructionsSub":false,"saveAsDatasetSub":false,"isConditionStep":false,
+        "prereqStep":null,"hasCalledWorkflow":false,"name":"step1","stepNumber":"1","saveAsDataset":null},
+        {"template":"\/\/*********************************************************************\n\/\/*              STEP
+        - Create temporary directory using BPXBATCH     *\n\/\/*********************************************************************\n\/\/*\n\/\/CREATE   EXEC
+        PGM=BPXBATCH\n\/\/*\n\/\/STDOUT   DD SYSOUT=*\n\/\/*\n\/\/STDERR   DD SYSOUT=*\n\/\/*\n\/\/STDPARM  DD
+        *\nSH mkdir -m 700 \/tmp\/IZUWORKFLOW-17932912593750.432322\n\/*\n\/\/*\n\/\/*********************************************************************\n\/\/*              STEP
+        - Create script in temp directory using BPXCOPY *\n\/\/*********************************************************************\n\/\/*\n\/\/UXCOPY   EXEC
+        PGM=BPXCOPY,\n\/\/             PARM=''ELEMENT(MYSCRIPT) TYPE(TEXT) PATHMODE(0,7,0,0)''\n\/\/*\n\/\/SYSTSPRT
+        DD SYSOUT=*\n\/\/*\n\/\/SYSIN    DD DUMMY\n\/\/*\n\/\/SYSUT2   DD PATH=''\/tmp\/IZUWORKFLOW-17932912593750.432322''\n\/\/*\n\/\/SYSUT1   DD
+        *,DLM=$$\n\/bin\/echo ''HELLO WORLD 2''\n$$\n\/\/*\n\/\/*********************************************************************\n\/\/*              STEP
+        - Execute script using BPXBATCH                 *\n\/\/*********************************************************************\n\/\/*\n\/\/XBATCH   EXEC
+        PGM=BPXBATCH\n\/\/*\n\/\/STDOUT   DD SYSOUT=*\n\/\/*\n\/\/STDERR   DD SYSOUT=*\n\/\/*\n\/\/STDPARM  DD
+        *\nSH \/tmp\/IZUWORKFLOW-17932912593750.432322\/MYSCRIPT\n\/*\n\/\/*\n\/\/*********************************************************************\n\/\/*              STEP
+        - Delete temporary directory using BPXBATCH     *\n\/\/*********************************************************************\n\/\/*\n\/\/REMOVE   EXEC
+        PGM=BPXBATCH\n\/\/*\n\/\/STDOUT   DD SYSOUT=*\n\/\/*\n\/\/STDERR   DD SYSOUT=*\n\/\/*\n\/\/STDPARM  DD
+        *\nSH rm -r \/tmp\/IZUWORKFLOW-17932912593750.432322\n\/*\n\/\/*\n\/\/*********************************************************************",
+        "instructions":"","maxLrecl":1024,"failedPattern":[],"description":"Engineered
+        for those who don''t follow the future, but define it.","outputVariablesPrefix":null,"variable-references":null,"saveAsUnixFileSub":false,
+        "procName":"IZUFPROC","title":"Vision
+        Engine","jobInfo":null,"timeout":0,"regionSize":0,"skills":null,"isRestStep":false,"output":null,"outputSub":false,"returnCode":null,
+        "outputSysoutDD":false,"successPattern":null,"state":"Unassigned","templateSub":false,"owner":null,"autoEnable":true,"submitAs":"shell-JCL",
+        "userDefined":false,"weight":"1","optional":false,"steps":null,"scriptParameters":null,"saveAsUnixFile":null,"instructionsSub":false,
+        "saveAsDatasetSub":false,"isConditionStep":false,"prereqStep":null,"hasCalledWorkflow":false,"name":"step2","stepNumber":"2","saveAsDataset":null}],
+        "containsParallelSteps":false,"workflowDefinitionFileMD5Value":"8e8fabbd0f72c54119a3748427fc0f25","isCallable":null,"system":"TST01.TSTA",
+        "autoDeleteOnCompletion":false,"workflowKey":"ef73bcd5-e904-4fcf-8d88-836dbffc0f62","workflowVersion":"1.0","category":"general"}'
+    headers:
+      cache-control:
+      - no-store, no-cache=set-cookie
+      content-language:
+      - en
+      content-length:
+      - '6161'
+      content-type:
+      - application/json; charset=UTF-8
+      expires:
+      - Thu, 01 Dec 1994 16:00:00 GMT
+      pragma:
+      - no-cache
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - Servlet/3.1
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

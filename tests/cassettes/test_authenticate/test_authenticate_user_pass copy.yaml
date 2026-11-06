@@ -1,0 +1,49 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '0'
+      user-agent:
+      - python-httpx2/2.16.0
+    method: POST
+    uri: https://zosmf.example/zosmf/services/authenticate
+  response:
+    body:
+      string: '{"returnCode":0,"reasonCode":0,"message":"Success."}'
+    headers:
+      cache-control:
+      - no-cache="set-cookie, set-cookie2"
+      content-language:
+      - en
+      content-type:
+      - application/json;charset=ISO-8859-1
+      date:
+      - Tue, 03 Nov 2026 19:43:39 GMT
+      expires:
+      - Thu, 01 Dec 1994 16:00:00 GMT
+      set-cookie:
+      - jwtToken=eyJraWQiOiJQNGVqUlg0dURfdXhWamR1UVFXYjRBa3ltcFpaX0RmdUZlNkVubDI0ZlhzIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJ0b2tlbl90eXBlIjoiQmVhcmVyIiwic3ViIjoidDc4NDM4MCIsInVwbiI6InQ3ODQzODAiLCJncm91cHMiOlsiR0FQTFNJUyIsIkdTU0giLCJHVFNPIl0sInJlYWxtIjoiU0FGUmVhbG0iLCJpc3MiOiJ6T1NNRiIsImV4cCI6MTc5Mzc2NTAxOSwiaWF0IjoxNzkzNzM1MDE5fQ.O9EPm8-8Km1-8X3mPIP6rXdje6S0vgVTwXeQ8OT9YVvYqQHUWN1PN-N26ej7GbY3_52WZaxD2MnabdexJcruSTrWjKs8iCua0DCL6v92bFQO4dYyjzgC5Hg2IVz_89H8bJF3q4zBLs387dcMuvY-wn4onTH-902DQLqvk7Yo5isRvdvLALtp3yRyc_n6F2wnI4aHulG0QpeRXHnpW7Ym7OX93jsB8CLnPgBCMLgr2xSvON3NhWoDocMcYNQDZ7e4xAGCuMZJBdL0z8COnsgtFxIclS3jW47X_ZGx4PITiKJoE8rpStfhLbvUY68XjjTTAQk3goXq0r3KI7MnQXXz3w;
+        Path=/; Secure; HttpOnly
+      - LtpaToken2=x2q29998U26AwfYy4vc0GlK5zItaZkkXEbGQ/qZ9DWdahFzjRf3OQWavfyVZsLmlqrus47JFqFTYTlw41WAA5lMANL31gQihu83RPJk9pmgY4NY1TCi2+0MTVd8CCMp6zEfvwIWuWjmAtTT96LreC+B3+6rBhhH4AA82XY0B36FRvzH0/OWomawz3nLRP7Lv1Te1iCIVVlrdwMklJjl8juVgbTIUXnXUls5TmLTrEEqd+mljc7GPzWyQpegrPIohfeEQ89s2zmDjCW1sN+tstmvA5zWl1hzmSwvEgDl8Q548NiM1t3FQpvWRbzTsmyr2;
+        Path=/; Secure; HttpOnly
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      transfer-encoding:
+      - chunked
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - Servlet/3.1
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

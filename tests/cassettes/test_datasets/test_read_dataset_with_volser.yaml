@@ -1,0 +1,48 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      user-agent:
+      - python-httpx2/2.16.0
+    method: GET
+    uri: https://zosmf.example/zosmf/restfiles/ds/-(VOL000)/USER.PDS(MEMBER)
+  response:
+    body:      
+      string: 'HELLO WORLD
+
+        '
+    headers:
+      cache-control:
+      - no-store, no-cache=set-cookie
+      content-language:
+      - en
+      content-length:
+      - '3512'
+      content-type:
+      - text/plain; charset=UTF-8
+      etag:
+      - 01741B6864DBAED678D2A76A9822602C
+      expires:
+      - Thu, 01 Dec 1994 16:00:00 GMT
+      pragma:
+      - no-cache
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-ibm-txid:
+      - tx0000000000009AB0
+      x-powered-by:
+      - Servlet/3.1
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

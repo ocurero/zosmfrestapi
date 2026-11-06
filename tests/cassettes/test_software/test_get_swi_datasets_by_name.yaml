@@ -1,0 +1,135 @@
+interactions:
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      content-length:
+      - '0'
+      user-agent:
+      - python-httpx2/2.16.0
+    method: POST
+    uri: https://zosmf.example/zosmf/swmgmt/swi/TSTA/HOOLIE/datasets
+  response:
+    body:
+      string: '{"statusurl":"https:\/\/zosmf.example\/zosmf\/swmgmt\/statusmonitor\/dslist\/1793101874866"}'
+    headers:
+      cache-control:
+      - no-cache="set-cookie, set-cookie2"
+      content-language:
+      - en-US
+      content-length:
+      - '102'
+      content-type:
+      - application/json; charset=ISO-8859-1
+      expires:
+      - Thu, 01 Dec 1994 16:00:00 GMT
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - Servlet/3.1
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 202
+      message: Accepted
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      user-agent:
+      - python-httpx2/2.16.0
+    method: GET
+    uri: https://zosmf.example/zosmf/swmgmt/statusmonitor/dslist/1793101874866
+  response:
+    body:
+      string: '{"status":"running","percentcomplete":"1"}'
+    headers:
+      cache-control:
+      - no-store
+      content-language:
+      - en-US
+      content-length:
+      - '42'
+      content-type:
+      - application/json; charset=ISO-8859-1
+      pragma:
+      - no-cache
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - Servlet/3.1
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+- request:
+    body: ''
+    headers:
+      accept:
+      - '*/*'
+      accept-encoding:
+      - gzip, deflate
+      connection:
+      - keep-alive
+      user-agent:
+      - python-httpx2/2.16.0
+    method: GET
+    uri: https://zosmf.example/zosmf/swmgmt/statusmonitor/dslist/1793101874866
+  response:
+    body:
+      string: '{"status":"complete","percentcomplete":"100","smpemanageddatasets":[{"dsname":"OSHOOLI.AHOOLBIN","volumes":["FOOVOL"],
+        "dstype":"PDS","recfm":"FB","lrecl":"80","blksize":"27920","tracks":"1","used":"100","extents":"1","dscategory":["DLIB"],"zones":["DLIB"],
+        "zonedddefs":[{"zone":"DLIB","dddefs":["AHOOLBIN"]}],"msgs":null},{"dsname":"OSHOOLI.AHOOLMOD","volumes":["FOOVOL"],"dstype":"PDS","recfm":"U","lrecl":"0",
+        "blksize":"32760","tracks":"1","used":"100","extents":"1","dscategory":["DLIB"],"zones":["DLIB"],"zonedddefs":[{"zone":"DLIB","dddefs":["AHOOLMOD"]}],"msgs":null},
+        {"dsname":"OSHOOLI.GLOBAL.CSI","volumes":["FOOVOL"],"dstype":"VSAM","recfm":null,"lrecl":null,"blksize":null,"tracks":"2","used":null,"extents":null,
+        "dscategory":["SMP\/E","DLIB","TARGET","GLOBAL"],"zones":["GLOBAL","TGT","DLIB"],"zonedddefs":null,"msgs":null},{"dsname":"OSHOOLI.SHOOLMOD","volumes":["FOOVOL"],
+        "dstype":"PDS","recfm":"U","lrecl":"0","blksize":"32760","tracks":"1","used":"100","extents":"1","dscategory":["TARGET"],"zones":["TGT"],"zonedddefs":[{"zone":"TGT",
+        "dddefs":["SHOOLMOD"]}],"msgs":null},{"dsname":"OSHOOLI.SMPLOG","volumes":["FOOVOL"],"dstype":"SEQ","recfm":"VB","lrecl":"512","blksize":"5120","tracks":"1",
+        "used":"100","extents":"1","dscategory":["SMP\/E","DLIB","TARGET","GLOBAL"],"zones":["DLIB","GLOBAL","TGT"],"zonedddefs":[{"zone":"DLIB","dddefs":["SMPLOG"]},
+        {"zone":"GLOBAL","dddefs":["SMPLOG"]},{"zone":"TGT","dddefs":["SMPLOG"]}],"msgs":null},{"dsname":"OSHOOLI.SMPPTS","volumes":["FOOVOL"],"dstype":"PDS","recfm":"FB",
+        "lrecl":"80","blksize":"27920","tracks":"1","used":"100","extents":"1","dscategory":["SMP\/E","DLIB","TARGET","GLOBAL"],"zones":["DLIB","GLOBAL","TGT"],
+        "zonedddefs":[{"zone":"DLIB","dddefs":["SMPPTS"]},{"zone":"GLOBAL","dddefs":["SMPPTS"]},{"zone":"TGT","dddefs":["SMPPTS"]}],"msgs":null},{"dsname":"OSHOOLI.SMPSCDS",
+        "volumes":["FOOVOL"],"dstype":"PDS","recfm":"FB","lrecl":"80","blksize":"27920","tracks":"1","used":"100","extents":"1","dscategory":["SMP\/E","TARGET"],
+        "zones":["TGT"],"zonedddefs":[{"zone":"TGT","dddefs":["SMPSCDS"]}],"msgs":null}],"smpemanagedunixdatasets":[{"dsname":"OSHOOLI.ZFS","volumes":["FOOVOL"],
+        "dstype":"ZFS","recfm":null,"lrecl":null,"blksize":null,"tracks":"15","used":null,"extents":null,"dscategory":["TARGET"],
+        "unixdirs":["\/u\/FOO\/hooli\/usr\/lpp\/hooli\/"],"zones":["TGT"],"zonedddefs":[{"zone":"TGT","dddefs":["SHOOLDIR"]}],
+        "msgs":null}],"nonsmpemanageddatasets":[{"dsname":"OSHOOLI.WORKFLOW","volumes":["FOOVOL"],"dstype":"PDSE","recfm":"VB","lrecl":"256","blksize":"32760",
+        "tracks":"1","used":"100","extents":"1","dscategory":["WORKFLOW"],"unixdirs":null,"msgs":null}]}'
+    headers:
+      cache-control:
+      - no-store
+      content-language:
+      - en-US
+      content-length:
+      - '3078'
+      content-type:
+      - application/json; charset=ISO-8859-1
+      pragma:
+      - no-cache
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - Servlet/3.1
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1
