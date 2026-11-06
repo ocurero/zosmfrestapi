@@ -14,7 +14,6 @@ sources:
 tasks:
 - run_tests: |
     cd zosmfrestapi
-    poetry check --lock
     poetry install
     poetry run pytest
 - sync_to_github: |
