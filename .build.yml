@@ -10,7 +10,7 @@ secrets:
 - 4e501fae-54d9-46ab-aaea-abad07526be1 # pypi token
 shell: null
 sources:
-- git@git.sr.ht:~ocurero/zosmfrestapi
+- https://git.sr.ht/~ocurero/zosmfrestapi
 tasks:
 - run_tests: |
     cd zosmfrestapi

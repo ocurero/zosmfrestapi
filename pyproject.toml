@@ -2,16 +2,30 @@
 name = "zosmfrestapi"
 version = "0.1.0"
 description = "A Python wrapper for the z/OSMF REST API"
+readme = "README.md"
 authors = [
     {name = "Oscar Curero",email = "dev@curero.es"}
 ]
 license = "MIT"
 requires-python = ">=3.12"
+keywords = ["z/OSMF", "IBM Z", "mainframe", "REST API"]
+classifiers = [
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
 dependencies = [
     "httpx2 (>=2.12.0,<3.0.0)",
     "pendulum (>=3.2.0,<4.0.0)",
     "dacite (>=1.9.2,<2.0.0)",
 ]
+
+[project.urls]
+Homepage = "https://sr.ht/~ocurero/zosmfrestapi/"
+Repository = "https://sr.ht/~ocurero/zosmfrestapi/"
+PyPI = "https://pypi.org/project/zosmfrestapi/"
 
 [dependency-groups]
 dev = [
@@ -33,3 +47,4 @@ addopts = ["-ra", "--record-mode=none", "--cov-fail-under=100", "--cov=zosmfrest
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+

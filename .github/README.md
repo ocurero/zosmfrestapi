@@ -70,8 +70,8 @@ password = getpass("Password: ")
 
 try:
     with ZosmfClient(server, username=username, password=password) as client:
-    for instance in client.list_swis():
-        print(f"{instance.name} ({instance.system})")
+        for instance in client.list_swis():
+            print(f"{instance.name} ({instance.system})")
 except ZosmfError as error:
     print(f"The z/OSMF request failed: {error}")
 ```
