@@ -24,13 +24,14 @@ Thank you for your interest in contributing to **zosmfrestapi**! This guide expl
 2. **Install dependencies and development tools**:
 
    ```bash
-   poetry install --all-groups --all-extras
+   poetry install --all-groups
    ```
 
    This installs:
    - Core runtime dependencies (`httpx2`, `pendulum`, `dacite`).
-   - Optional extras like `zcrypto` (`py_zcrypto`).
    - Development dependency groups (`dev` with `pytest`, `black`, `flake8`, `mypy`, `poethepoet`, and `zcrypto-dev` with `cryptography`).
+
+   > **Note on `zcrypto`:** The optional extra `zcrypto` (`py_zcrypto`) requires z/OS C headers (`gskcms.h`) and is only installable on z/OS. On Linux, macOS, and Windows, mock fixtures are provided by `zcrypto-dev` (`cryptography`) so unit tests run and pass without needing `py_zcrypto`.
 
 ---
 

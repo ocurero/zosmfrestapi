@@ -15,7 +15,7 @@ sources:
 tasks:
 - run_tests: |
     cd zosmfrestapi
-    poetry install --all-groups --all-extras
+    poetry install --all-groups
     poetry run poe check
 - sync_to_github: |
     ssh-keyscan github.com >> ~/.ssh/known_hosts
