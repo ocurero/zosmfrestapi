@@ -1,8 +1,8 @@
 """Synchronous Python client for the z/OSMF REST API.
 
-The package root re-exports :class:`ZosmfClient`, response models, and public
-exceptions. Create one client per server/configuration and use it as a context
-manager to close the shared HTTP session when finished.
+The package root re-exports :class:`ZosmfClient`, :class:`ZosmfZcryptoClient`,
+response models, and public exceptions. Create one client per server/configuration and
+use it as a context manager to close the shared HTTP session when finished.
 """
 
 from zosmfrestapi.client import ZosmfClient
@@ -48,9 +48,11 @@ from zosmfrestapi.models.workflow import (
     WorkflowItem,
     WorkflowListItem,
 )
+from zosmfrestapi.zcrypto_client import ZosmfZcryptoClient
 
 __all__ = [
     "ZosmfClient",
+    "ZosmfZcryptoClient",
     "LoginOk",
     "ZosmfDatasetNotFoundError",
     "ZosmfError",

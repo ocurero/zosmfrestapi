@@ -4,7 +4,6 @@ from types import TracebackType
 from typing import Literal, Self
 
 import httpx2
-
 from zosmfrestapi.exceptions import ZosmfAuthError, ZosmfError
 
 logger = logging.getLogger(__name__)
@@ -25,6 +24,7 @@ class ZosmfBase:
         username: str | None = None,
         password: str | None = None,
         cert: str | tuple[str, str] | None = None,
+        key_password: str | None = None,
         ltpa_token: str | None = None,
         jwt_token: str | None = None,
         jwt_cookie_name: str = "jwtToken",
@@ -49,6 +49,8 @@ class ZosmfBase:
                 PEM file containing both the certificate and private key, or
                 a ``(certificate_path, private_key_path)`` tuple for separate
                 files.
+            key_password: Optional private key password. Pass the private key
+                password if the key is password protected.
             ltpa_token: Optional LTPA token sent as the ``LtpaToken2`` cookie.
             jwt_token: Optional JWT sent as the cookie named by
                 ``jwt_cookie_name``. If both token types are provided, both
@@ -69,30 +71,28 @@ class ZosmfBase:
             ZosmfError: If ``insecure`` is combined with ``cert`` or ``cafile``.
         """
         if insecure and (cafile or cert):
-            raise ZosmfError(
-                "Cannot set insecure mode when cafile or cert is provided."
-            )
+            raise ZosmfError("Cannot set insecure mode when cafile or cert is provided.")
 
-        ctx = ssl.create_default_context()
-        if isinstance(cert, tuple):
-            certfile, keyfile = cert
-            ctx.load_cert_chain(certfile=certfile, keyfile=keyfile)
-        elif cert:
-            ctx.load_cert_chain(certfile=cert)
-        if cafile:
-            ctx.load_verify_locations(cafile=cafile)
+        verify: bool | ssl.SSLContext
         if insecure:
-            logger.debug(
-                "Insecure mode enabled, TLS certificate verification is disabled."
-            )
-            ctx = False
+            logger.debug("Insecure mode enabled, TLS certificate verification is disabled.")
+            verify = False
+        else:
+            ctx = ssl.create_default_context()
+            if isinstance(cert, tuple):
+                certfile, keyfile = cert
+                ctx.load_cert_chain(certfile=certfile, keyfile=keyfile, password=key_password)
+            elif cert:
+                ctx.load_cert_chain(certfile=cert)
+            if cafile:
+                ctx.load_verify_locations(cafile=cafile)
+            verify = ctx  # <------ linea 88
+
         proxy_config: str | httpx2.Proxy | None = proxy
         if proxy:
             proxy_config = httpx2.Proxy(proxy)
             proxy_config.auth = (
-                (proxyusername, proxypassword)
-                if proxyusername or proxypassword
-                else None
+                (proxyusername, proxypassword) if proxyusername or proxypassword else None
             )
         auth = (username, password) if username and password else None
         headers = {}
@@ -101,13 +101,11 @@ class ZosmfBase:
         if jwt_token:
             headers = {"Cookie": f"{jwt_cookie_name}={jwt_token}"}
         if ltpa_token and jwt_token:
-            headers = {
-                "Cookie": f"LtpaToken2={ltpa_token}; {jwt_cookie_name}={jwt_token}"
-            }
+            headers = {"Cookie": f"LtpaToken2={ltpa_token}; {jwt_cookie_name}={jwt_token}"}
         self.http = httpx2.Client(
             base_url=server,
             proxy=proxy_config,
-            verify=ctx,
+            verify=verify,
             auth=auth,
             headers=headers,
         )

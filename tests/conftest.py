@@ -1,8 +1,12 @@
 import pytest
 
+# pyright: reportMissingImports=false
+
+
 try:
     from tests._private_vcr import scrub_request
     from tests._private_vcr import scrub_response as custom_scrub_response
+
 except ImportError:
 
     def scrub_request(request):

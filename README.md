@@ -1,38 +1,28 @@
-A Python wrapper for the z/OSMF© REST API
-=========================================
+<h2 align="center">A Python wrapper for the z/OSMF© REST API</h2>
 
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![builds.sr.ht status](https://builds.sr.ht/~ocurero/zosmfrestapi/commits/main/.build.yml.svg)](https://builds.sr.ht/~ocurero/zosmfrestapi/commits/main/.build.yml?) ![z/OS](https://img.shields.io/badge/works%20on-z/OS-8A2BE2)
+<p align="center">
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![builds.sr.ht status](https://builds.sr.ht/~ocurero/zosmfrestapi/commits/main/.build.yml.svg)](https://builds.sr.ht/~ocurero/zosmfrestapi/commits/main/.build.yml?) ![z/OS](https://img.shields.io/badge/works%20on-z/OS-8A2BE2) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+</p>
 
 * Open Source: MIT License.
 * Website: <https://sr.ht/~ocurero/zosmfrestapi/>
 * Pypi: <https://pypi.org/project/zosmfrestapi/>
+* Changelog: [CHANGELOG.md](CHANGELOG.md)
+* Contributing: [CONTRIBUTING.md](CONTRIBUTING.md)
+
+Key features:
+* **Pure Python**: Package and its dependencies are 100% pure Python (no C extensions required).
+* **Cross-platform**: Works on Windows, Linux, macOS, and z/OS UNIX System Services.
+* **Flexible authentication**: Supports user/password, LTPA and JWT tokens, and mutual TLS (mTLS).
+* **Proxy ready**: Full support for standard HTTP/HTTPS proxies as well as authenticated proxies.
 
 
 Install
 -------
 
 **zosmfrestapi** requires Python 3.12 or newer and access to a z/OSMF server.
-You can check your Python version with:
 
-```console
-python --version
-```
-
-It is a good idea to use a virtual environment so this package does not affect
-other Python projects. From a terminal, create and activate one in your project
-folder:
-
-```console
-# Windows (PowerShell)
-py -3.12 -m venv .venv
-.venv\Scripts\Activate.ps1
-
-# macOS or Linux
-python3 -m venv .venv
-source .venv/bin/activate
-```
-
-Then install the package from PyPI:
+Install the package from PyPI:
 
 ```console
 python -m pip install zosmfrestapi

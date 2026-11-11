@@ -26,18 +26,16 @@ class AuthenticationServices(ZosmfBase):
         token cookies.
 
         Returns:
-            A ``LoginOk`` with the response return/reason codes and message,
-            plus any LTPA or JWT tokens returned as response cookies, when the
-            endpoint responds with HTTP 200. A successful non-200 response
-            returns ``None``.
+            A ``LoginOk`` containing the response return/reason codes and
+            message, plus any LTPA or JWT tokens returned as response cookies.
 
         Raises:
             ZosmfLoginError: If z/OSMF responds with HTTP 401.
             ZosmfAuthError: If another unsuccessful HTTP status is returned.
             httpx2.RequestError: If the request fails before an HTTP response
-                is received.
+            is received.
         """
-        logger.debug(f"Authenticating with z/OSMF using all available methods")
+        logger.debug("Authenticating with z/OSMF using all available methods")
         resp = self.http.post("/zosmf/services/authenticate")
         if resp.status_code == 200:
             logger.debug("Authentication succeeded with z/OSMF")
@@ -47,7 +45,8 @@ class AuthenticationServices(ZosmfBase):
                 jwt_token=resp.cookies.get(self.jwt_cookie_name, self.jwt_token),
             )
         elif resp.status_code == 401:
-            logger.debug(f"Authentication failed with z/OSMF")
+            logger.debug("Authentication failed with z/OSMF")
             raise ZosmfLoginError(resp)
-        logger.debug(f"Unexpected authentication failure with z/OSMF")
+        logger.debug("Unexpected authentication failure with z/OSMF")
         self._raise_for_status(resp, exc_handler=ZosmfAuthError)
+        raise AssertionError("Unreachable")  # pragma: no cover

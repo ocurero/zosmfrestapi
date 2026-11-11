@@ -1,4 +1,4 @@
-from dataclasses import dataclass, field, fields, is_dataclass
+from dataclasses import dataclass, field
 from typing import Any
 
 import pendulum

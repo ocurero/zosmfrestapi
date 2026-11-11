@@ -41,6 +41,7 @@ class ZosmfClient(
 
             with ZosmfClient("https://zosmf.example",
                              username="demouser", password="DEMOPASS",
-                             cert=("/path/to/cert", "/path/to/key")) as client:
+                             cert=("/path/to/cert", "/path/to/key"),
+                             key_password="secret") as client:
                 systems = client.get_systems()
     """

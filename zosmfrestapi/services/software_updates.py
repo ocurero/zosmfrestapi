@@ -47,9 +47,7 @@ class SoftwareUpdatesServices(ZosmfBase):
             for upd in resp.json()["update-processes"]
         ]
 
-    def list_sw_updates_by_uuid(
-        self, swiuuid: str, last: bool = False
-    ) -> list[UpdateProcess]:
+    def list_sw_updates_by_uuid(self, swiuuid: str, last: bool = False) -> list[UpdateProcess]:
         """List update processes for a software instance identified by UUID.
 
         If z/OSMF reports that the software instance has no update-process
@@ -102,9 +100,7 @@ class SoftwareUpdatesServices(ZosmfBase):
             f"/zosmf/swmgmt/swi/{system}/{name}/swupdate{'' if last else '/all'}"
         )
 
-    def get_sw_updates(
-        self, process_id: int, wait: bool = False
-    ) -> list[UpdateProcess]:
+    def get_sw_updates(self, process_id: int, wait: bool = False) -> list[UpdateProcess]:
         """Get the update-process records for a process ID.
 
         Args:
@@ -158,9 +154,7 @@ class SoftwareUpdatesServices(ZosmfBase):
         while status.json()["status"] == "running":
             time.sleep(2)
             status = self.http.get(status_monitor_url)
-            self._raise_for_status(
-                status, exc_handler=ZosmfSoftwareManagementRequestError
-            )
+            self._raise_for_status(status, exc_handler=ZosmfSoftwareManagementRequestError)
         if updates:
             return {
                 "lastholdrecvdate": pendulum.parse(status.json()["lastholdrecvdate"]),
@@ -396,9 +390,7 @@ class SoftwareUpdatesServices(ZosmfBase):
         while status.json()["status"] == "running":
             time.sleep(2)
             status = self.http.get(status_monitor_url)
-            self._raise_for_status(
-                status, exc_handler=ZosmfSoftwareManagementRequestError
-            )
+            self._raise_for_status(status, exc_handler=ZosmfSoftwareManagementRequestError)
         return [
             from_dict(
                 data_class=SoftwareUpdate,
@@ -658,9 +650,7 @@ class SoftwareUpdatesServices(ZosmfBase):
             httpx2.RequestError: If the request fails before an HTTP response
                 is received.
         """
-        return self._cancel_sw_update(
-            f"/zosmf/swmgmt/swi/{system}/{name}/swupdate/cancel"
-        )
+        return self._cancel_sw_update(f"/zosmf/swmgmt/swi/{system}/{name}/swupdate/cancel")
 
     def _resume_sw_update(
         self,
@@ -882,16 +872,12 @@ class SoftwareUpdatesServices(ZosmfBase):
             for process in resp.json()["update-processes"]
         ]
 
-    def _copy_output_sw_update(
-        self, path: str, output_dir: str
-    ) -> list[dict[str, Any]]:
+    def _copy_output_sw_update(self, path: str, output_dir: str) -> list[dict[str, Any]]:
         resp = self.http.put(path, params={"dir": output_dir})
         self._raise_for_status(resp, exc_handler=ZosmfSoftwareManagementError)
         return resp.json()["files"]
 
-    def copy_output_sw_update_by_uuid(
-        self, uuid: str, output_dir: str
-    ) -> list[dict[str, Any]]:
+    def copy_output_sw_update_by_uuid(self, uuid: str, output_dir: str) -> list[dict[str, Any]]:
         """Copy output files for a software instance identified by UUID.
 
         Args:

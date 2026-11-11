@@ -14,8 +14,8 @@ interactions:
     uri: https://zosmf.example/zosmf/resttopology/groups
   response:
     body:
-      string: '{"numRows":2,"items":[{"name":"GROUP0","description":"A simple group","systemNickNames":"TESTA,TESTB"},
-              {"name":"IYUCLOUD","description":"","systemNickNames":"TESTA,TESTB,TESTC"}]}'
+      string: '{"numRows":2,"items":[{"name":"GROUP0","description":"A simple group called GROUP0","systemNickNames":"TESTA,TESTB"},
+              {"name":"IYUCLOUD","description":"A simple group called IYUCLOUD","systemNickNames":"TESTA,TESTB,TESTC"}]}'
     headers:
       cache-control:
       - no-store, no-cache=set-cookie

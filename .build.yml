@@ -4,6 +4,7 @@ environment: null
 image: alpine/old
 packages:
 - poetry
+- nodejs
 repositories: null
 secrets:
 - 60c74018-5d43-4a31-9bec-55c59e80f0b9 # github ssh key
@@ -14,8 +15,8 @@ sources:
 tasks:
 - run_tests: |
     cd zosmfrestapi
-    poetry install
-    poetry run pytest
+    poetry install --all-groups --all-extras
+    poetry run poe check
 - sync_to_github: |
     ssh-keyscan github.com >> ~/.ssh/known_hosts
     cd zosmfrestapi
@@ -25,7 +26,7 @@ tasks:
     if [[ "$GIT_REF" =~ ^refs/tags/ ]]; then
       poetry config pypi-token.pypi "$(cat ~/PYPI_TOKEN_ZOSMFRESTAPI)"
       cd zosmfrestapi
-      poetry build --format sdist
+      poetry build
       poetry publish 
     fi
 triggers: null

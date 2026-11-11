@@ -15,11 +15,11 @@ interactions:
   response:
     body:
       string: '{"access":"Public","jobStatement":null,"workflowArchiveSAFID":"FOOBAR","deleteCompletedJobs":false,"globalVariableGroup":null,
-              "jobsOutputDirectory":"\/foo\/bar\/log","vendor":"Hooli Software","scope":"sysplex","statusName":"in-progress","workflowID":"myworkflow",
-              "owner":"FOOBAR","accountInfo":null,"isInstanceVariableWithoutPrefix":false,"variables":[],"workflowName":"myworkflow",
+              "jobsOutputDirectory":"\/foo\/bar\/log","vendor":"Hooli Software","scope":"sysplex","statusName":"in-progress","workflowID":"Hoolie",
+              "owner":"FOOBAR","accountInfo":null,"isInstanceVariableWithoutPrefix":false,"variables":[],"workflowName":"HOOLIE",
               "automationStatus":null,"percentComplete":0,"workflowDescription":"The Box III, Gavin Belson Signature Edition","containsParallelSteps":false,
               "workflowDefinitionFileMD5Value":"8e8fabbd0f72c54119a3748427fc0f25","isCallable":null,"system":"TST01.TSTA","autoDeleteOnCompletion":false,
-              "workflowKey":"ef73bcd5-e904-4fcf-8d88-836dbffc0f62","workflowVersion":"1.0","category":"general"}'
+              "workflowKey":"fc4fc0fa-1fa3-4247-bb2d-7f5203e0c3c7","workflowVersion":"1.0","category":"general"}'
     headers:
       cache-control:
       - no-store, no-cache=set-cookie

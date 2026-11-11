@@ -40,9 +40,7 @@ def remap(data: dict[str, Any], cls: type[Any]) -> dict[str, Any]:
         A new dictionary with aliased keys remapped; ``data`` is not modified.
     """
     aliases = {
-        f.metadata["json_name"]: f.name
-        for f in fields(cls)
-        if "json_name" in f.metadata
+        f.metadata["json_name"]: f.name for f in fields(cls) if "json_name" in f.metadata
     }
 
     return {aliases.get(k, k): v for k, v in data.items()}

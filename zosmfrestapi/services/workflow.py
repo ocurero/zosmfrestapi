@@ -26,9 +26,7 @@ class WorkflowServices(ZosmfBase):
     an iterator so callers can observe each status update while polling.
     """
 
-    def _get_workflow(
-        self, workflow_id: str, steps: bool, variables: bool
-    ) -> dict[str, Any]:
+    def _get_workflow(self, workflow_id: str, steps: bool, variables: bool) -> dict[str, Any]:
         """Fetch the raw workflow response, optionally including steps/variables.
 
         This internal helper returns the JSON object before model conversion.
@@ -187,9 +185,7 @@ class WorkflowServices(ZosmfBase):
             httpx2.RequestError: If either request fails before an HTTP response
                 is received.
         """
-        resp = self.http.post(
-            "/zosmf/workflow/rest/1.0/workflows", json=to_dict(workflow)
-        )
+        resp = self.http.post("/zosmf/workflow/rest/1.0/workflows", json=to_dict(workflow))
         self._raise_for_status(resp, exc_handler=ZosmfWorkflowError)
         return self.get_workflow(resp.json()["workflowKey"])
 

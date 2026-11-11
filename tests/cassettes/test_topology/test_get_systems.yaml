@@ -17,7 +17,7 @@ interactions:
       string: '{"numRows":2,"items":[{"systemNickName":"TESTA","groupNames":"GROUP0,IYUCLOUD","cpcSerial":"","zosVR":"","systemName":"TSTA","jesType":"JES2",
               "sysplexName":"TST01","jesMemberName":"TSTA","httpProxyName":"","ftpDestinationName":"","url":"https://zosmf.example/zosmf/","cpcName":""},
               {"systemNickName":"TESTB","groupNames":"IYUCLOUD","cpcSerial":"","zosVR":"","systemName":"TSTB","jesType":"JES2","sysplexName":"TST01",
-              "jesMemberName":"TSTB","httpProxyName":"","ftpDestinationName":"","url":"","cpcName":""}]}'
+              "jesMemberName":"TSTB","httpProxyName":"","ftpDestinationName":"","url":"https://zosmf.example/zosmf/","cpcName":""}]}'
     headers:
       cache-control:
       - no-store, no-cache=set-cookie

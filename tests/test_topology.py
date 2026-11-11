@@ -1,22 +1,14 @@
 import pytest
-
-from zosmfrestapi import (
-    System,
-    ZosmfClient,
-    Group,
-)
+from zosmfrestapi import ZosmfClient
+from zosmfrestapi.testing import make_group, make_system
 
 
 @pytest.mark.vcr
 def test_get_groups():
     with ZosmfClient("https://zosmf.example") as client:
         assert client.get_groups() == {
-            "GROUP0": Group(
-                name="GROUP0", description="A simple group", systems="TESTA,TESTB"
-            ),
-            "IYUCLOUD": Group(
-                name="IYUCLOUD", description="", systems="TESTA,TESTB,TESTC"
-            ),
+            "GROUP0": make_group(name="GROUP0", systems=["TESTA", "TESTB"]),
+            "IYUCLOUD": make_group(name="IYUCLOUD", systems=["TESTA", "TESTB", "TESTC"]),
         }
 
 
@@ -24,21 +16,6 @@ def test_get_groups():
 def test_get_systems():
     with ZosmfClient("https://zosmf.example") as client:
         assert client.get_systems() == {
-            "TSTA": System(
-                name="TSTA",
-                nickName="TESTA",
-                sysplex="TST01",
-                groups="GROUP0,IYUCLOUD",
-                jesType="JES2",
-                jesMemberName="TSTA",
-                url="https://zosmf.example/zosmf/",
-            ),
-            "TSTB": System(
-                name="TSTB",
-                nickName="TESTB",
-                sysplex="TST01",
-                groups="IYUCLOUD",
-                jesType="JES2",
-                jesMemberName="TSTB",
-            ),
+            "TSTA": make_system(name="A", groups=["GROUP0", "IYUCLOUD"]),
+            "TSTB": make_system(name="B", groups=["IYUCLOUD"]),
         }

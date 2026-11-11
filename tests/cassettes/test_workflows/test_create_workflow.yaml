@@ -21,7 +21,7 @@ interactions:
     uri: https://zosmf.example/zosmf/workflow/rest/1.0/workflows
   response:
     body:
-      string: '{"vendor":"Hoolie Software","workflowKey":"f0541261-573d-48ed-8f3e-75884db326ec","workflowVersion":"1.0",
+      string: '{"vendor":"Hoolie Software","workflowKey":"fc4fc0fa-1fa3-4247-bb2d-7f5203e0c3c7","workflowVersion":"1.0",
               "workflowDescription":"The Box III, Gavin Belson Signature Edition","workflowID":"Hoolie"}'
     headers:
       cache-control:
@@ -59,15 +59,15 @@ interactions:
       user-agent:
       - python-httpx2/2.16.0
     method: GET
-    uri: https://zosmf.example/zosmf/workflow/rest/1.0/workflows/f0541261-573d-48ed-8f3e-75884db326ec?returnData=
+    uri: https://zosmf.example/zosmf/workflow/rest/1.0/workflows/fc4fc0fa-1fa3-4247-bb2d-7f5203e0c3c7?returnData=
   response:
     body:
       string: '{"access":"Public","jobStatement":null,"workflowArchiveSAFID":"demouser","deleteCompletedJobs":false,"globalVariableGroup":null,"jobsOutputDirectory":null,"vendor":"Hoolie
         Software","scope":"sysplex","statusName":"in-progress","workflowID":"Hoolie","owner":"demouser","accountInfo":null,
-        "isInstanceVariableWithoutPrefix":false,"workflowName":"myworkflow1","automationStatus":null,"percentComplete":0,
+        "isInstanceVariableWithoutPrefix":false,"workflowName":"HOOLIE","automationStatus":null,"percentComplete":0,
         "workflowDescription":"The Box III, Gavin Belson Signature Edition","containsParallelSteps":false,
         "workflowDefinitionFileMD5Value":"aca0b684798fb2dfd49261ca4d211d93","isCallable":null,"system":"TST01.TSTA (TSTA)",
-        "autoDeleteOnCompletion":false,"workflowKey":"f0541261-573d-48ed-8f3e-75884db326ec","workflowVersion":"1.0","category":"general"}'
+        "autoDeleteOnCompletion":false,"workflowKey":"fc4fc0fa-1fa3-4247-bb2d-7f5203e0c3c7","workflowVersion":"1.0","category":"general"}'
     headers:
       cache-control:
       - no-store

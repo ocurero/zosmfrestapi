@@ -125,9 +125,7 @@ class SoftwareServices(ZosmfBase):
 
     def _get_swi_datasets(self, path: str) -> dict[
         str,
-        list[SmpeManagedDataset]
-        | list[SmpeManagedUnixDataset]
-        | list[NonSmpeManagedDataset],
+        list[SmpeManagedDataset] | list[SmpeManagedUnixDataset] | list[NonSmpeManagedDataset],
     ]:
         resp = self.http.post(path)
         if resp.status_code == 404:
@@ -156,9 +154,7 @@ class SoftwareServices(ZosmfBase):
 
     def get_swi_datasets_by_uuid(self, swiuuid: str) -> dict[
         str,
-        list[SmpeManagedDataset]
-        | list[SmpeManagedUnixDataset]
-        | list[NonSmpeManagedDataset],
+        list[SmpeManagedDataset] | list[SmpeManagedUnixDataset] | list[NonSmpeManagedDataset],
     ]:
         """Retrieve dataset inventories for a software instance by UUID.
 
@@ -185,9 +181,7 @@ class SoftwareServices(ZosmfBase):
 
     def get_swi_datasets_by_name(self, name: str, system: str) -> dict[
         str,
-        list[SmpeManagedDataset]
-        | list[SmpeManagedUnixDataset]
-        | list[NonSmpeManagedDataset],
+        list[SmpeManagedDataset] | list[SmpeManagedUnixDataset] | list[NonSmpeManagedDataset],
     ]:
         """Retrieve dataset inventories for a software instance by name.
 
@@ -264,9 +258,7 @@ class SoftwareServices(ZosmfBase):
                     else []
                 ),
                 "workflows": (
-                    [asdict(workflow) for workflow in swi.workflows]
-                    if swi.workflows
-                    else []
+                    [asdict(workflow) for workflow in swi.workflows] if swi.workflows else []
                 ),
             },
         )
@@ -333,9 +325,7 @@ class SoftwareServices(ZosmfBase):
         wait: bool,
     ) -> list[CsiEntry] | dict[str, Any]:
         if "*" in entries and len(entries) > 1:
-            raise ZosmfSoftwareManagementError(
-                "'*' cannot be combined with other entry types."
-            )
+            raise ZosmfSoftwareManagementError("'*' cannot be combined with other entry types.")
         elif "*" in subentries and len(subentries) > 1:
             raise ZosmfSoftwareManagementError(
                 "'*' cannot be combined with other subentry types."
@@ -484,6 +474,4 @@ class SoftwareServices(ZosmfBase):
             while status["status"] == "running":
                 time.sleep(2)
                 status = self._get_query_csi_status(statusurl)
-        return [
-            from_dict(data_class=CsiEntry, data=entry) for entry in status["entries"]
-        ]
+        return [from_dict(data_class=CsiEntry, data=entry) for entry in status["entries"]]

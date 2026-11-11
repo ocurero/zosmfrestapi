@@ -1,0 +1,6 @@
+{
+    "include": ["zosmfrestapi"],
+    "exclude": [".venv", "build", "dist"],
+    "venvPath": ".",
+    "venv": ".venv"
+}

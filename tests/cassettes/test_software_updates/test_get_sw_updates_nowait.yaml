@@ -11,15 +11,13 @@ interactions:
       user-agent:
       - python-httpx2/2.16.0
     method: GET
-    uri: https://zosmf.example/zosmf/swmgmt/swupdate/34
+    uri: https://zosmf.example/zosmf/swmgmt/swupdate/58
   response:
     body:
-      string: '{"name":"HOOLIE","system":"TSTA","uuid":"ab7a70d9-02bf-4a70-9623-961d014bdec1","update-processes":[{"targetzone":"TGT","selection":
-        {"updates":["UO07777","UO08888"]},"notes":"","processid":34,"started":"2026-09-25T15:44:39Z","completed":"2026-09-25T15:44:49Z","status":"CANCELED",
-        "step":"PREPARING_UPDATES","error-results":{"smpe-rc":12,"message":"SMP\/E
-        detected missing required SYSMODs. Check the Error report for the list of
-        missing SYSMODs.<br><br>RECEIVE the missing SYSMODs into the global zone and
-        retry the step.","detailedMessage":"Missing SYSMODs: \n\n"}}]}'
+      string: '{"name":"HOOLIE","system":"TSTA","uuid":"c66bb092-cf92-4db9-96fd-2073e3b826ae","update-processes":[{"targetzone":"TGT",
+              "selection":{"updates":["HL00002"]},"exclude-updates":[],"resolve-holds":[],"suspend-steps":["PRE_INSTALLATION_SUMMARY"],
+              "notes":"","processid":58,"started":"2026-10-29T13:45:49Z","lastmodified":"2026-10-29T13:46:04Z","status":"RUNNING",
+              "step":"VERIFYING_UPDATES","holds":[]}]}'
     headers:
       cache-control:
       - no-store, no-cache=set-cookie
