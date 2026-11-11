@@ -1,11 +1,13 @@
 ### WARNING, this repository is a read-only mirror!
 *See [sourcehut](https://sr.ht/~ocurero/zosmfrestapi/) for PR and latest news*
 
-<h2 align="center">A Python wrapper for the z/OSMF© REST API</h2>
+# A Python wrapper for the z/OSMF© REST API
 
-<p align="center">
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![builds.sr.ht status](https://builds.sr.ht/~ocurero/zosmfrestapi/commits/main/.build.yml.svg)](https://builds.sr.ht/~ocurero/zosmfrestapi/commits/main/.build.yml?) ![z/OS](https://img.shields.io/badge/works%20on-z/OS-8A2BE2) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-</p>
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![builds.sr.ht status](https://builds.sr.ht/~ocurero/zosmfrestapi/commits/main/.build.yml.svg)](https://builds.sr.ht/~ocurero/zosmfrestapi/commits/main/.build.yml?)
+![z/OS](https://img.shields.io/badge/works%20on-z/OS-8A2BE2)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 * Open Source: MIT License.
 * Website: <https://sr.ht/~ocurero/zosmfrestapi/>
