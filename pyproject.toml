@@ -24,7 +24,7 @@ dynamic = ["version"]
 
 [project.urls]
 Homepage = "https://sr.ht/~ocurero/zosmfrestapi/"
-Repository = "https://sr.ht/~ocurero/zosmfrestapi/"
+Repository = "https://git.sr.ht/~ocurero/zosmfrestapi"
 PyPI = "https://pypi.org/project/zosmfrestapi/"
 
 [project.optional-dependencies]

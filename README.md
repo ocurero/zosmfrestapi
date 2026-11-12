@@ -8,7 +8,7 @@
 
 * Open Source: MIT License.
 * Website: <https://sr.ht/~ocurero/zosmfrestapi/>
-* Pypi: <https://pypi.org/project/zosmfrestapi/>
+* Repository: <https://git.sr.ht/~ocurero/zosmfrestapi>
 * Changelog: <https://git.sr.ht/~ocurero/zosmfrestapi/tree/main/item/CHANGELOG.md>
 * Contributing: <https://git.sr.ht/~ocurero/zosmfrestapi/tree/main/item/CONTRIBUTING.md>
 
