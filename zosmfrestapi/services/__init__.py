@@ -1,11 +1,13 @@
 import logging
 import ssl
+from importlib.metadata import version
 from types import TracebackType
 from typing import Literal, Self
 
 import httpx2
 from zosmfrestapi.exceptions import ZosmfAuthError, ZosmfError
 
+__version__ = version("zosmfrestapi")
 logger = logging.getLogger(__name__)
 
 
@@ -86,7 +88,7 @@ class ZosmfBase:
                 ctx.load_cert_chain(certfile=cert)
             if cafile:
                 ctx.load_verify_locations(cafile=cafile)
-            verify = ctx  # <------ linea 88
+            verify = ctx
 
         proxy_config: str | httpx2.Proxy | None = proxy
         if proxy:
@@ -95,13 +97,16 @@ class ZosmfBase:
                 (proxyusername, proxypassword) if proxyusername or proxypassword else None
             )
         auth = (username, password) if username and password else None
-        headers = {}
+        headers = {
+            "X-CSRF-ZOSMF-HEADER": "zosmfrestapi",
+            "User-Agent": f"zosmfrestapi/{__version__}",
+        }
         if ltpa_token:
-            headers = {"Cookie": f"LtpaToken2={ltpa_token}"}
+            headers["Cookie"] = f"LtpaToken2={ltpa_token}"
         if jwt_token:
-            headers = {"Cookie": f"{jwt_cookie_name}={jwt_token}"}
+            headers["Cookie"] = f"{jwt_cookie_name}={jwt_token}"
         if ltpa_token and jwt_token:
-            headers = {"Cookie": f"LtpaToken2={ltpa_token}; {jwt_cookie_name}={jwt_token}"}
+            headers["Cookie"] = f"LtpaToken2={ltpa_token}; {jwt_cookie_name}={jwt_token}"
         self.http = httpx2.Client(
             base_url=server,
             proxy=proxy_config,
