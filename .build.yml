@@ -3,6 +3,7 @@ artifacts: null
 environment: null
 image: alpine/old
 packages:
+- git
 - poetry
 - nodejs
 repositories: null

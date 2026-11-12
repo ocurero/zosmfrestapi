@@ -1,6 +1,5 @@
 [project]
 name = "zosmfrestapi"
-version = "0.2.0"
 description = "A Python wrapper for the z/OSMF REST API"
 readme = "README.md"
 authors = [
@@ -21,6 +20,7 @@ dependencies = [
     "pendulum (>=3.2.0,<4.0.0)",
     "dacite (>=1.9.2,<2.0.0)",
 ]
+dynamic = ["version"]
 
 [project.urls]
 Homepage = "https://sr.ht/~ocurero/zosmfrestapi/"
@@ -91,7 +91,16 @@ check = [
 module = ["OpenSSL.*", "py_zcrypto.*"]
 ignore_missing_imports = true
 
+[tool.poetry]
+version = "0.0.0"
+
+[tool.poetry.requires-plugins]
+poetry-dynamic-versioning = { version = ">=1.0.0,<2.0.0", extras = ["plugin"] }
+
+[tool.poetry-dynamic-versioning]
+enable = true
+
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning>=1.0.0,<2.0.0"]
+build-backend = "poetry_dynamic_versioning.backend"
 
