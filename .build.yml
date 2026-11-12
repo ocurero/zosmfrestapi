@@ -10,7 +10,7 @@ packages:
 repositories: null
 secrets:
 - 60c74018-5d43-4a31-9bec-55c59e80f0b9 # github ssh key
-- c0e6f7da-5a15-4991-acad-5bcae9debca1 # pypi zosmfrestapi token
+- b10f6ccf-58b8-469a-98af-309d71a59e15 # pypi zosmfrestapi token
 shell: null
 sources:
 - https://git.sr.ht/~ocurero/zosmfrestapi
