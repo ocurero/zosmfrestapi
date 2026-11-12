@@ -5,6 +5,7 @@ image: alpine/old
 packages:
 - git
 - poetry
+- py3-pip
 - nodejs
 repositories: null
 secrets:
@@ -19,15 +20,18 @@ tasks:
     poetry install --all-groups
     poetry run poe check
 - sync_to_github: |
-    ssh-keyscan github.com >> ~/.ssh/known_hosts
-    cd zosmfrestapi
-    git push --mirror git+ssh://git@github.com/ocurero/zosmfrestapi.git
+    # Only in branches, to avoid race conditions when tags and branch commits are pushed together
+    if [[ "$GIT_REF" =~ ^refs/heads/ ]]; then
+      ssh-keyscan github.com >> ~/.ssh/known_hosts
+      cd zosmfrestapi
+      git push --mirror git+ssh://git@github.com/ocurero/zosmfrestapi.git
+    fi
 - publish_pypi: |
     # Only in tags
     if [[ "$GIT_REF" =~ ^refs/tags/ ]]; then
+      pip install --break-system-packages "poetry-dynamic-versioning[plugin]"
       poetry config pypi-token.pypi "$(cat ~/PYPI_TOKEN_ZOSMFRESTAPI)"
       cd zosmfrestapi
-      poetry build
-      poetry publish 
+      poetry publish --build
     fi
 triggers: null
