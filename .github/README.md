@@ -12,8 +12,8 @@
 * Open Source: MIT License.
 * Website: <https://sr.ht/~ocurero/zosmfrestapi/>
 * Pypi: <https://pypi.org/project/zosmfrestapi/>
-* Changelog: [CHANGELOG.md](CHANGELOG.md)
-* Contributing: [CONTRIBUTING.md](CONTRIBUTING.md)
+* Changelog: <https://git.sr.ht/~ocurero/zosmfrestapi/tree/main/item/CHANGELOG.md>
+* Contributing: <https://git.sr.ht/~ocurero/zosmfrestapi/tree/main/item/CONTRIBUTING.md>
 
 Key features:
 * **Pure Python**: Package and its dependencies are 100% pure Python (no C extensions required).
