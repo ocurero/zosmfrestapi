@@ -30,8 +30,10 @@ tasks:
     # Only in tags
     if [[ "$GIT_REF" =~ ^refs/tags/ ]]; then
       pip install --break-system-packages "poetry-dynamic-versioning[plugin]"
-      poetry config pypi-token.pypi "$(cat ~/PYPI_TOKEN_ZOSMFRESTAPI)"
       cd zosmfrestapi
+      set +x
+      export POETRY_PYPI_TOKEN_PYPI="$(cat ~/PYPI_TOKEN_ZOSMFRESTAPI)"
+      set -x
       poetry publish --build
     fi
 triggers: null
