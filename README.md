@@ -17,7 +17,7 @@ Key features:
 * **Flexible authentication**: Supports user/password, LTPA and JWT tokens, and mutual TLS (mTLS).
 * **Proxy ready**: Full support for standard HTTP/HTTPS proxies as well as authenticated proxies.
 
-![ZosmfClient demo](docs/ZosmfClient.gif)
+![ZosmfClient demo](https://git.sr.ht/~ocurero/zosmfrestapi/blob/main/docs/ZosmfClient.gif)
 
 
 Install
@@ -80,7 +80,7 @@ The library provides two client implementations:
 
 ### Using `ZosmfZcryptoClient` on z/OS
 
-![ZosmfZcryptoClient demo](docs/ZosmfZcryptoClient.gif)
+![ZosmfZcryptoClient demo](https://git.sr.ht/~ocurero/zosmfrestapi/blob/main/docs/ZosmfZcryptoClient.gif)
 
 `ZosmfZcryptoClient` retrieves client certificates and private keys directly from a SAF key ring, exporting temporary PEM files and configuring mutual TLS transparently. When using a key ring owned by the current user, specify the ring name as "name". When using a key ring owned by another user, specify the ring name as "userid/name":
 
@@ -169,7 +169,7 @@ package source and the project website.
 
 ## Contributing
 
-Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on development, testing, and submitting patches.
+Contributions are welcome! Please see [CONTRIBUTING.md](https://git.sr.ht/~ocurero/zosmfrestapi/tree/main/item/CONTRIBUTING.md) for guidelines on development, testing, and submitting patches.
 
 ## Issues and Feedback
 
@@ -177,7 +177,7 @@ If you encounter any bugs or have feature requests, please report them on the [S
 
 ## License
 
-The MIT License. See [LICENSE](LICENSE).
+The MIT License. See [LICENSE](https://git.sr.ht/~ocurero/zosmfrestapi/tree/main/item/LICENSE).
 
 ## Trademarks
 
