@@ -120,6 +120,7 @@ with `cafile` below.
 | Client certificate and key in one PEM file | `cert="client.pem"` |
 | Internal certificate authority | `cafile="company-ca.pem"` |
 | Existing LTPA or JWT token | `ltpa_token="..."` or `jwt_token="..."` |
+| Identity propagation (needs [PH68412](https://www.ibm.com/support/pages/apar/PH68412))   | None |
 | Network proxy | `proxy="http://proxy.example.com:8080"` |
 
 For example, to trust an internal certificate authority, pass `cafile` when
