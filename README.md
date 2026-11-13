@@ -7,18 +7,17 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![z/OS](https://img.shields.io/badge/works%20on-z/OS-8A2BE2)
 
-* Open Source: MIT License.
 * Website: <https://sr.ht/~ocurero/zosmfrestapi/>
 * Repository: <https://git.sr.ht/~ocurero/zosmfrestapi>
 * Changelog: <https://git.sr.ht/~ocurero/zosmfrestapi/tree/main/item/CHANGELOG.md>
-* Issues: <https://todo.sr.ht/~ocurero/zosmfrestapi>
-* Contributing: <https://git.sr.ht/~ocurero/zosmfrestapi/tree/main/item/CONTRIBUTING.md>
 
 Key features:
 * **Pure Python**: Package and its dependencies are 100% pure Python (no C extensions required).
 * **Cross-platform**: Works on Windows, Linux, macOS, and z/OS UNIX System Services.
 * **Flexible authentication**: Supports user/password, LTPA and JWT tokens, and mutual TLS (mTLS).
 * **Proxy ready**: Full support for standard HTTP/HTTPS proxies as well as authenticated proxies.
+
+![ZosmfClient demo](docs/ZosmfClient.gif)
 
 
 Install
@@ -40,8 +39,6 @@ python -m pip install .
 ```
 
 ## Quickstart
-
-![ZosmfClient demo](docs/ZosmfClient.gif)
 
 ```python
 
@@ -141,14 +138,14 @@ diagnostics, never as a production fix. It cannot be combined with `cert` or `ca
 
 ## Supported APIs
 
-| API Category | Description | Key Methods |
+| API Category | Description | Key Methods (examples) |
 | --- | --- | --- |
 | **Authentication** | Basic Auth, LTPA / JWT tokens session login | `authenticate()` |
 | **Topology** | Query systems and sysplex groups defined in z/OSMF | `get_groups()`, `get_systems()` |
 | **Datasets** | Sequential and partitioned dataset retrieval | `read_dataset()` |
-| **Software Management** | SMP/E software instances, products, features, and FMIDs | `list_swis()`, `get_swi_by_name()`, `get_swi_by_uuid()`, `get_products()`, `get_features()`, `get_fmids()` |
-| **Software Updates** | Search, inspect, start, monitor, and cancel update processes | `search_sw_updates()`, `get_sw_updates()`, `install_sw_updates()`, `cancel_sw_update()` |
-| **Workflows** | List, create, inspect, execute, monitor, and archive workflows | `list_workflows()`, `get_workflow()`, `create_workflow()`, `start_workflow()`, `archive_workflow()` |
+| **Software Management** | SMP/E software instances, CSI queries, and datasets | `list_swis()`, `get_swi_by_name()`, `query_csi_by_name()` |
+| **Software Updates** | Search, inspect, start, monitor, and cancel update processes | `search_sw_updates_by_name()`, `start_sw_update_by_name()`, `check_sw_update_status()` |
+| **Workflows** | List, create, inspect, execute, monitor, and archive workflows | `get_workflows()`, `create_workflow()`, `start_workflow()`, `wait_for_workflow()` |
 
 Some operations change z/OSMF state. Check the method documentation and make
 sure your account has the required permissions before using them.
@@ -170,6 +167,14 @@ sure your account has the required permissions before using them.
 
 For the complete API, parameters, and return types, see the docstrings in the
 package source and the project website.
+
+## Contributing
+
+Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on development, testing, and submitting patches.
+
+## Issues and Feedback
+
+If you encounter any bugs or have feature requests, please report them on the [SourceHut issue tracker](https://todo.sr.ht/~ocurero/zosmfrestapi).
 
 ## License
 
