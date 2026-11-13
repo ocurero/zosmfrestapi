@@ -1,4 +1,4 @@
-from . import ZosmfError
+from zosmfrestapi.exceptions.commons import ZosmfError
 
 
 class ZosmfSoftwareManagementError(ZosmfError):

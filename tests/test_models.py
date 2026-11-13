@@ -1,5 +1,5 @@
-from zosmfrestapi import DataSet
-from zosmfrestapi.utils import to_dict
+from zosmfrestapi.models import DataSet
+from zosmfrestapi._utils import to_dict
 
 
 def test_to_dict_converts_dictionary_values():

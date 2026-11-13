@@ -1,7 +1,9 @@
 from unittest.mock import ANY, patch
 
 import pytest
-from zosmfrestapi import LoginOk, ZosmfAuthError, ZosmfClient, ZosmfLoginError
+from zosmfrestapi import ZosmfClient
+from zosmfrestapi.models import LoginOk
+from zosmfrestapi.exceptions import ZosmfAuthError, ZosmfLoginError
 from zosmfrestapi.testing import (
     make_loginok,
     make_loginok_jwt,

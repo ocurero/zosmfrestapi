@@ -4,7 +4,7 @@ from typing import Any
 import pendulum
 
 
-def _parse_datetime(value: str) -> pendulum.DateTime:
+def parse_datetime(value: str) -> pendulum.DateTime:
     """Parse a string and require a Pendulum ``DateTime`` result.
 
     Args:

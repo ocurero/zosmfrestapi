@@ -1,7 +1,7 @@
 import logging
 from . import ZosmfBase
 from dacite import from_dict
-from zosmfrestapi.utils import remap
+from zosmfrestapi import _utils
 from zosmfrestapi.models.topology import Group, System
 
 logger = logging.getLogger(__name__)
@@ -25,7 +25,7 @@ class TopologyServices(ZosmfBase):
         resp = self.http.get("/zosmf/resttopology/groups")
         self._raise_for_status(resp)
         return {
-            item["name"]: from_dict(Group, data=remap(item, Group))
+            item["name"]: from_dict(Group, data=_utils.remap(item, Group))
             for item in resp.json()["items"]
         }
 
@@ -44,6 +44,6 @@ class TopologyServices(ZosmfBase):
         resp = self.http.get("/zosmf/resttopology/systems")
         self._raise_for_status(resp)
         return {
-            item["systemName"]: from_dict(System, data=remap(item, System))
+            item["systemName"]: from_dict(System, data=_utils.remap(item, System))
             for item in resp.json()["items"]
         }

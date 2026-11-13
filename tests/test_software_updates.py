@@ -1,6 +1,6 @@
 import pytest
-from zosmfrestapi import (
-    ZosmfClient,
+from zosmfrestapi import ZosmfClient
+from zosmfrestapi.exceptions import (
     ZosmfSoftwareInstanceNotFoundError,
     ZosmfSoftwareManagementError,
 )

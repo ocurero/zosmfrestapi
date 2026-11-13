@@ -1,6 +1,7 @@
 import pytest
 
-from zosmfrestapi import ZosmfClient, ZosmfDatasetNotFoundError
+from zosmfrestapi import ZosmfClient
+from zosmfrestapi.exceptions import ZosmfDatasetNotFoundError
 
 
 @pytest.mark.vcr

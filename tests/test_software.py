@@ -1,11 +1,11 @@
 import pytest
-from zosmfrestapi import (
-    SoftwareInstance,
-    ZosmfClient,
+from zosmfrestapi import ZosmfClient
+from zosmfrestapi.exceptions import (
     ZosmfSoftwareInstanceNotFoundError,
     ZosmfSoftwareManagementError,
     ZosmfSoftwareManagementRequestError,
 )
+from zosmfrestapi.models import SoftwareInstance
 from zosmfrestapi.services import software
 from zosmfrestapi.testing import (
     make_csi_entry,

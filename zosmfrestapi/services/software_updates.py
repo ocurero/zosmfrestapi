@@ -3,19 +3,18 @@ from typing import Any
 
 import pendulum
 from dacite import Config, from_dict
+from zosmfrestapi import _utils
+from zosmfrestapi.exceptions.software import (
+    ZosmfSoftwareInstanceNotFoundError,
+    ZosmfSoftwareManagementError,
+    ZosmfSoftwareManagementRequestError,
+)
 from zosmfrestapi.models.software_updates import (
     MissingFixcat,
     MissingUpdate,
     SoftwareUpdate,
     UpdateProcess,
 )
-
-from zosmfrestapi.exceptions.software import (
-    ZosmfSoftwareManagementError,
-    ZosmfSoftwareInstanceNotFoundError,
-    ZosmfSoftwareManagementRequestError,
-)
-from zosmfrestapi.utils import _parse_datetime
 
 from . import ZosmfBase
 
@@ -39,7 +38,7 @@ class SoftwareUpdatesServices(ZosmfBase):
                 data=upd,
                 config=Config(
                     type_hooks={
-                        pendulum.DateTime: _parse_datetime,
+                        pendulum.DateTime: _utils.parse_datetime,
                     },
                     convert_key=lambda k: k.replace("_", "-"),
                 ),
@@ -128,7 +127,7 @@ class SoftwareUpdatesServices(ZosmfBase):
                 data=process,
                 config=Config(
                     type_hooks={
-                        pendulum.DateTime: _parse_datetime,
+                        pendulum.DateTime: _utils.parse_datetime,
                     },
                     convert_key=lambda k: k.replace("_", "-"),
                 ),
@@ -397,7 +396,7 @@ class SoftwareUpdatesServices(ZosmfBase):
                 data=sw_upd,
                 config=Config(
                     type_hooks={
-                        pendulum.DateTime: _parse_datetime,
+                        pendulum.DateTime: _utils.parse_datetime,
                     }
                 ),
             )
@@ -864,7 +863,7 @@ class SoftwareUpdatesServices(ZosmfBase):
                 data=process,
                 config=Config(
                     type_hooks={
-                        pendulum.DateTime: _parse_datetime,
+                        pendulum.DateTime: _utils.parse_datetime,
                     },
                     convert_key=lambda k: k.replace("_", "-"),
                 ),

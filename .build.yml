@@ -15,10 +15,20 @@ shell: null
 sources:
 - https://git.sr.ht/~ocurero/zosmfrestapi
 tasks:
-- run_tests: |
+- run_quality_checks: |
     cd zosmfrestapi
     poetry install --all-groups
-    poetry run poe check
+    poetry run poe quality
+- run_client_tests: |
+    cd zosmfrestapi
+    poetry env remove --all
+    poetry install --without zcrypto-dev
+    poetry run poe client_tests
+- run_zcrypto_tests: |
+    cd zosmfrestapi
+    poetry env remove --all
+    poetry install --with zcrypto-dev
+    poetry run poe zcrypto_tests
 - sync_to_github: |
     # Only in branches, to avoid race conditions when tags and branch commits are pushed together
     if [[ "$GIT_REF" =~ ^refs/heads/ ]]; then

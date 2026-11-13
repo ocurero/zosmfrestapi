@@ -37,7 +37,7 @@ Thank you for your interest in contributing to **zosmfrestapi**! This guide expl
 
 ## Running Quality Checks and Tests
 
-The project uses [Poe the Poet](https://github.com/nat-n/poethepoet) to manage common tasks defined in [pyproject.toml](file:///home/oscar/dev/projects/zosmfrestapi/pyproject.toml).
+The project uses [Poe the Poet](https://github.com/nat-n/poethepoet) to manage common tasks defined in [pyproject.toml](file:///home/oscar/dev/projects/zosmfrestapi/pyproject.toml). Tasks are organized in two groups: `quality` and `testing`.
 
 ### The `check` Command
 
@@ -47,30 +47,45 @@ Before submitting any patch or pull request, you **must** ensure that all qualit
 poetry run poe check
 ```
 
-This command runs sequentially:
-1. `black --check .` — Verifies code formatting (line length 96).
-2. `flake8 zosmfrestapi` — Lints the library code.
-3. `pyright --warnings` — Static type checker.
-4. `mypy zosmfrestapi` — Additional strict type checking.
-5. `pytest` — Runs the test suite and verifies **100% test coverage** (`--cov-fail-under=100`).
+This master task runs:
+1. `quality` — Code formatting and linting checks.
+2. `client_tests` — Core client test suite with coverage reporting.
+3. `zcrypto_tests` — z/OS crypto test suite with coverage reporting.
 
-### Individual Commands
+### Available Tasks by Group
 
-You can also run individual tasks:
+#### Quality Tasks (`quality` group)
 
 - **Format code**:
   ```bash
   poetry run poe format
   ```
-- **Lint check**:
+  Formats the `zosmfrestapi` and `tests` directories according to Black (line length 96).
+
+- **Run all quality checks**:
   ```bash
-  poetry run poe lint
+  poetry run poe quality
   ```
-- **Run tests only**:
+  Runs `black --check .`, `flake8 zosmfrestapi`, `mypy zosmfrestapi`, and `pyright --warnings`.
+
+#### Testing Tasks (`testing` group)
+
+- **Run all tests (client + zcrypto)**:
   ```bash
-  poetry run poe test
+  poetry run poe tests
   ```
-  *(or directly: `poetry run pytest`)*
+
+- **Run client tests only**:
+  ```bash
+  poetry run poe client_tests
+  ```
+  Executes the core client tests (ignoring `tests/test_zcrypto_client.py`), omits `zcrypto*` from coverage metrics, and enforces **100% test coverage** (`--fail-under=100`).
+
+- **Run zcrypto tests only**:
+  ```bash
+  poetry run poe zcrypto_tests
+  ```
+  Executes `tests/test_zcrypto_client.py` isolated to measure `zcrypto` coverage independently, enforcing **100% test coverage** (`--fail-under=100`).
 
 ---
 
@@ -88,14 +103,16 @@ You can also run individual tasks:
 ```
 zosmfrestapi/
 ├── zosmfrestapi/
-│   ├── exceptions/        # Domain-specific exceptions
+│   ├── exceptions/        # Exceptions: commons (ZosmfError, ZosmfAuthError) & per-domain errors
 │   ├── models/            # Dataclasses & response models (via dacite)
-│   ├── services/          # Endpoint service implementations
-│   ├── testing/           # Test helpers and fixtures
-│   ├── client.py          # ZosmfClient main entry point
-│   ├── utils.py           # Helper utilities
-│   ├── zcrypto.py         # Cryptographic helpers
-│   └── zcrypto_client.py  # ZosmfZcryptoClient entry point
+│   ├── services/          # Endpoint service implementations (ZosmfBase, workflow, software...)
+│   ├── testing/           # Test helpers, mocks, and fixtures
+│   ├── __init__.py        # Public library entry point (exports ZosmfClient & ZosmfZcryptoClient)
+│   ├── _utils.py          # Internal helper utilities (remap, to_dict, parse_datetime)
+│   ├── client.py          # ZosmfClient standard client implementation
+│   ├── py.typed           # PEP 561 marker file for type hints
+│   ├── zcrypto.py         # Cryptographic helpers for PKCS#12 / SAF certificates
+│   └── zcrypto_client.py  # ZosmfZcryptoClient SAF key ring client implementation
 ├── tests/
 │   ├── cassettes/         # Recorded HTTP interactions for tests
 │   ├── conftest.py        # Pytest configuration and shared fixtures

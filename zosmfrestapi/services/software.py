@@ -1,11 +1,11 @@
 import logging
 import time
-from typing import Any
 from dataclasses import asdict
+from typing import Any
 
 import pendulum
 from dacite import Config, from_dict
-
+from zosmfrestapi import _utils
 from zosmfrestapi.exceptions.software import (
     ZosmfSoftwareInstanceNotFoundError,
     ZosmfSoftwareManagementError,
@@ -25,7 +25,6 @@ from zosmfrestapi.models.software import (
     SoftwareInstance,
     SoftwareInstanceWorkflow,
 )
-from zosmfrestapi.utils import _parse_datetime, remap
 
 from . import ZosmfBase
 
@@ -52,10 +51,10 @@ class SoftwareServices(ZosmfBase):
         return [
             from_dict(
                 data_class=SoftwareInstance,
-                data=remap(swi, SoftwareInstance),
+                data=_utils.remap(swi, SoftwareInstance),
                 config=Config(
                     type_hooks={
-                        pendulum.DateTime: _parse_datetime,
+                        pendulum.DateTime: _utils.parse_datetime,
                     }
                 ),
             )
@@ -69,10 +68,10 @@ class SoftwareServices(ZosmfBase):
         self._raise_for_status(resp, exc_handler=ZosmfSoftwareManagementError)
         return from_dict(
             data_class=SoftwareInstance,
-            data=remap(resp.json(), SoftwareInstance),
+            data=_utils.remap(resp.json(), SoftwareInstance),
             config=Config(
                 type_hooks={
-                    pendulum.DateTime: _parse_datetime,
+                    pendulum.DateTime: _utils.parse_datetime,
                     list[DataSet]: lambda v: [] if v is None else v,
                     list[Product]: lambda v: [] if v is None else v,
                     list[NonSmpeProduct]: lambda v: [] if v is None else v,

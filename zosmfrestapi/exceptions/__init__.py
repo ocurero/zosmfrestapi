@@ -1,18 +1,21 @@
-import httpx2
+from zosmfrestapi.exceptions.commons import ZosmfAuthError, ZosmfError
+from zosmfrestapi.exceptions.authentication import ZosmfLoginError
+from zosmfrestapi.exceptions.dataset import ZosmfDatasetNotFoundError
+from zosmfrestapi.exceptions.software import (
+    ZosmfSoftwareInstanceNotFoundError,
+    ZosmfSoftwareManagementError,
+    ZosmfSoftwareManagementRequestError,
+)
+from zosmfrestapi.exceptions.workflow import ZosmfWorkflowBaseError, ZosmfWorkflowError
 
-
-class ZosmfError(Exception):
-    """Base exception for errors raised by the z/OSMF REST API client."""
-
-    pass
-
-
-class ZosmfAuthError(ZosmfError):
-    """Raised when z/OSMF rejects a request with HTTP 401.
-
-    The triggering ``httpx2.HTTPStatusError`` is available as
-    :attr:`http_exception`.
-    """
-
-    def __init__(self, exc: httpx2.HTTPStatusError) -> None:
-        self.http_exception = exc
+__all__ = [
+    "ZosmfDatasetNotFoundError",
+    "ZosmfError",
+    "ZosmfAuthError",
+    "ZosmfLoginError",
+    "ZosmfSoftwareManagementError",
+    "ZosmfSoftwareInstanceNotFoundError",
+    "ZosmfSoftwareManagementRequestError",
+    "ZosmfWorkflowBaseError",
+    "ZosmfWorkflowError",
+]

@@ -25,6 +25,7 @@ dynamic = ["version"]
 [project.urls]
 Homepage = "https://sr.ht/~ocurero/zosmfrestapi/"
 Repository = "https://git.sr.ht/~ocurero/zosmfrestapi"
+Issues = "https://todo.sr.ht/~ocurero/zosmfrestapi"
 PyPI = "https://pypi.org/project/zosmfrestapi/"
 
 [project.optional-dependencies]
@@ -34,11 +35,11 @@ zcrypto = [
 
 [dependency-groups]
 dev = [
+    "coverage (>=7.17.3,<8.0.0)",
     "pytest (>=9.1.1,<10.0.0)",
     "black (>=26.5.1,<27.0.0)",
     "pytest-recording (>=0.14.0,<0.15.0)",
     "pytest-httpx2 (>=1.0.0,<2.0.0)",
-    "pytest-cov (>=7.1.0,<8.0.0)",
     "flake8 (>=7.5.0,<8.0.0)",
     "flake8-pyproject (>=1.2.4,<2.0.0)",
     "mypy (>=2.4.1,<3.0.0)",
@@ -59,33 +60,42 @@ per-file-ignores = "tests/*.py:E501"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = ["-ra",
-           "--record-mode=none",
-           "--cov-fail-under=100",
-           "--cov=zosmfrestapi",
-           ]
 
 
-[tool.poe.tasks]
-format = "black ."
+[tool.poe.groups.quality.tasks.format]
+help = "Format code acording to black."
+cmd = "black zosmfrestapi tests"
 
-lint = [
-    { cmd = "black --check ." },
-    { cmd = "flake8" },
-    { cmd = "mypy zosmfrestapi" },
-    { cmd = "pyright --warnings" }
-
-]
-
-test = "pytest"
-
-check = [
+[tool.poe.groups.quality.tasks.quality]
+help = "Run quality checks: black, flake8, mypy and pyright."
+sequence = [
     { cmd = "black --check ." },
     { cmd = "flake8 zosmfrestapi" },
-    { cmd = "pyright --warnings" },
     { cmd = "mypy zosmfrestapi" },
-    { cmd = "pytest" }
+    { cmd = "pyright --warnings" }
 ]
+
+[tool.poe.groups.testing.tasks.client_tests]
+help = "Run client tests only."
+sequence = [{cmd = """coverage run --omit='tests/*,*/zcrypto*' -m 
+                   pytest --ignore=tests/test_zcrypto_client.py"""},
+            {cmd = "coverage report --fail-under=100 --show-missing"}
+]
+
+[tool.poe.groups.testing.tasks.zcrypto_tests]
+help = "Run zcrypto tests only."
+sequence = [{cmd = """coverage run --omit='tests/*' --include='*/zcrypto*' -m
+                   pytest tests/test_zcrypto_client.py"""},
+            {cmd = "coverage report --fail-under=100 --show-missing"}
+            ]
+
+[tool.poe.groups.testing.tasks.tests]
+help = "Run client and zcrypto tests."
+sequence = ["client_tests", "zcrypto_tests"]
+
+[tool.poe.tasks.check]
+help = "Run all checks."
+sequence = ["quality", "client_tests", "zcrypto_tests"]
 
 [[tool.mypy.overrides]]
 module = ["OpenSSL.*", "py_zcrypto.*"]
@@ -100,4 +110,3 @@ enable = true
 [build-system]
 requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning>=1.0.0,<2.0.0"]
 build-backend = "poetry_dynamic_versioning.backend"
-

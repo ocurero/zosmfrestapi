@@ -1,6 +1,6 @@
 import httpx2
 
-from . import ZosmfError
+from zosmfrestapi.exceptions.commons import ZosmfError
 
 
 class ZosmfWorkflowBaseError(ZosmfError):

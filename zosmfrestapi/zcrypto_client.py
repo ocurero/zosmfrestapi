@@ -4,7 +4,6 @@ import ssl
 from tempfile import NamedTemporaryFile
 
 from zosmfrestapi.client import ZosmfClient
-from zosmfrestapi.zcrypto import _extract_key_from_pkcs12
 
 
 class ZosmfZcryptoClient(ZosmfClient):
@@ -45,6 +44,8 @@ class ZosmfZcryptoClient(ZosmfClient):
         if platform.system() != "OS/390":
             raise RuntimeError("The zcrypto backend is only available on z/OS.")
         import py_zcrypto  # pyright: ignore[reportMissingImports]
+
+        from zosmfrestapi.zcrypto import _extract_key_from_pkcs12
 
         keyring = kwargs.pop("keyring")
         label = kwargs.pop("label")

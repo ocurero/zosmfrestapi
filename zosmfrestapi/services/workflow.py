@@ -2,18 +2,14 @@ import time
 from typing import Any, Iterator, Literal, overload
 
 from dacite import from_dict
-
-from zosmfrestapi.exceptions.workflow import (
-    ZosmfWorkflowBaseError,
-    ZosmfWorkflowError,
-)
+from zosmfrestapi import _utils
+from zosmfrestapi.exceptions.workflow import ZosmfWorkflowBaseError, ZosmfWorkflowError
 from zosmfrestapi.models.workflow import (
     WorkflowArchivedListItem,
     WorkflowInstance,
     WorkflowItem,
     WorkflowListItem,
 )
-from zosmfrestapi.utils import remap, to_dict
 
 from . import ZosmfBase
 
@@ -67,7 +63,7 @@ class WorkflowServices(ZosmfBase):
         """
         return from_dict(
             WorkflowInstance,
-            data=remap(
+            data=_utils.remap(
                 self._get_workflow(workflow_id, steps=steps, variables=variables),
                 WorkflowInstance,
             ),
@@ -134,7 +130,7 @@ class WorkflowServices(ZosmfBase):
         return [
             from_dict(
                 WorkflowListItem,
-                data=remap(workflow, WorkflowListItem),
+                data=_utils.remap(workflow, WorkflowListItem),
             )
             for workflow in resp.json()["workflows"]
         ]
@@ -159,7 +155,7 @@ class WorkflowServices(ZosmfBase):
         return [
             from_dict(
                 WorkflowArchivedListItem,
-                data=remap(archived_workflow, WorkflowArchivedListItem),
+                data=_utils.remap(archived_workflow, WorkflowArchivedListItem),
             )
             for archived_workflow in resp.json()["archivedWorkflows"]
         ]
@@ -185,7 +181,9 @@ class WorkflowServices(ZosmfBase):
             httpx2.RequestError: If either request fails before an HTTP response
                 is received.
         """
-        resp = self.http.post("/zosmf/workflow/rest/1.0/workflows", json=to_dict(workflow))
+        resp = self.http.post(
+            "/zosmf/workflow/rest/1.0/workflows", json=_utils.to_dict(workflow)
+        )
         self._raise_for_status(resp, exc_handler=ZosmfWorkflowError)
         return self.get_workflow(resp.json()["workflowKey"])
 

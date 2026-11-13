@@ -1,7 +1,7 @@
 import logging
 
 import httpx2
-from zosmfrestapi.exceptions import ZosmfError
+from zosmfrestapi.exceptions.commons import ZosmfError
 
 logger = logging.getLogger(__name__)
 

@@ -2,7 +2,8 @@ from unittest.mock import patch
 
 import pytest
 from httpx2 import Proxy
-from zosmfrestapi import ZosmfClient, ZosmfError
+from zosmfrestapi import ZosmfClient
+from zosmfrestapi.exceptions import ZosmfError
 
 
 def test_insecure():

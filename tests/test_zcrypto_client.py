@@ -7,7 +7,6 @@ from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.asymmetric import rsa
 from cryptography.hazmat.primitives.serialization import BestAvailableEncryption, pkcs12
 from cryptography.x509.oid import NameOID
-
 from zosmfrestapi.zcrypto import _extract_key_from_pkcs12
 
 
@@ -15,10 +14,7 @@ from zosmfrestapi.zcrypto import _extract_key_from_pkcs12
 def zcrypto_client():
     with (
         patch("platform.system", return_value="OS/390"),
-        patch.dict(
-            "sys.modules",
-            {"py_zcrypto": MagicMock()},
-        ),
+        patch.dict("sys.modules", {"py_zcrypto": MagicMock()}),
     ):
         from zosmfrestapi import ZosmfZcryptoClient
 
@@ -26,7 +22,7 @@ def zcrypto_client():
 
 
 @patch("ssl.SSLContext.load_cert_chain")
-@patch("zosmfrestapi.zcrypto_client._extract_key_from_pkcs12")
+@patch("zosmfrestapi.zcrypto._extract_key_from_pkcs12")
 def test_ZosmfZCryptoClient(mock_extract, mock_load_cert_chain, zcrypto_client):
 
     mock_extract.return_value = """

@@ -1,5 +1,7 @@
 import pytest
-from zosmfrestapi import WorkflowItem, ZosmfClient, ZosmfWorkflowBaseError, ZosmfWorkflowError
+from zosmfrestapi import ZosmfClient
+from zosmfrestapi.exceptions import ZosmfWorkflowBaseError, ZosmfWorkflowError
+from zosmfrestapi.models import WorkflowItem
 from zosmfrestapi.services import workflow as workflow_s
 from zosmfrestapi.testing import (
     make_archived_worfklow_list,
