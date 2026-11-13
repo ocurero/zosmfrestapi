@@ -44,7 +44,8 @@ python -m pip install .
 
 from zosmfrestapi import ZosmfClient
 
-with ZosmfClient(server, username="demouser", password="itsasecret") as client:
+with ZosmfClient("https://zosmf.example",
+                 username="demouser", password="itsasecret") as client:
     for instance in client.list_swis():
         print(f"{instance.name} ({instance.system})")
 ```
@@ -86,11 +87,8 @@ The library provides two client implementations:
 ```python
 from zosmfrestapi import ZosmfZcryptoClient
 
-with ZosmfZcryptoClient(
-    "https://zosmf.example:443",
-    keyring="userid/name",
-    label="zOSMF Client Certificate",
-) as client:
+with ZosmfZcryptoClient("https://zosmf.example",
+                        keyring="userid/name", label="zOSMF Client Certificate") as client:
     systems = client.get_systems()
 ```
 
@@ -128,7 +126,7 @@ For example, to trust an internal certificate authority, pass `cafile` when
 creating the client:
 
 ```python
-with ZosmfClient(server, username=username, password=password,
+with ZosmfClient("https://zosmf.example", username="demouser", password="itsasecret",
                  cafile="company-ca.pem") as client:
     systems = client.get_systems()
 ```
